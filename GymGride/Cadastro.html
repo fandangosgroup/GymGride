@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>|-Fazer Cadastro-|</title>
+</head>
+<body>
+    <h2>Site BankDB v3.0</h2>
+    <hr>
+<form action="Classes/Controller.php?cadastro=1" method="POST">
+
+    <table border="solid">
+        <tr>
+          <th>Fazer Cadastro:</th>
+        </tr>
+        <tr>
+          <td>Insira Seu nome: <input type="text" name="name"></td>
+        </tr>
+        <tr>
+          <td>Insira Seu email: <input type="email" name="email"></td>
+        </tr>
+        <tr>
+          <td>Insira Sua senha: <input type="password" name="password"></td>
+        </tr>
+    </table> 
+    <hr width="500" align="left">
+    <table border="solid">
+        <tr>
+          <td>Confirme Sua senha: <input type="password" name="passwordC"></td>
+        </tr>
+       
+    </table>
+    <hr width="500" align="left">
+    <input type="submit" value="Fazer Cadastro">
+</form>
+
+</body>
+</html>
