@@ -1,5 +1,4 @@
 <?php
-//teste git desconsiderar
 
 abstract class Usuario{
     private $name;
