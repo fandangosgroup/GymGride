@@ -1,13 +1,16 @@
 <?php
 namespace GymGride\Controller;
 
+use GymGride\View\IndexView;
+
 class Controller {
 
 
 
 
 
-    public function index(){
-        header('Location: GymGride/src/View/index.html');
+    public function view(){
+        $view = new IndexView;
+        $view->index();
     }
 }

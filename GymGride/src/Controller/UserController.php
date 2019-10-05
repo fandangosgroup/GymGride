@@ -1,6 +1,6 @@
 <?php 
 use GymGride\Controller\Cadastro;
-
+use GymGride\Model\userModel;
 
 require '../../../vendor/autoload.php';
 
@@ -72,14 +72,9 @@ if (isset($_GET['login'])){
     }
 
 
-    $user = new Login;
-    $classname = "email";
-    $user->__set($classname, $email);
-    $classname = "password";
-    $user->__set($classname, $password);
-
-    $user->efetuar_login();
-
+    $user = new userModel;
+    $resultado = $user->login($email, $password);
+    print_r($resultado);
 }
 
 
