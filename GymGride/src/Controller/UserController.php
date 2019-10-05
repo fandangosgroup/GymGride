@@ -1,76 +1,22 @@
 <?php 
-use GymGride\Controller\Cadastro;
-use GymGride\Model\userModel;
+namespace GymGride\Controller;
 
-require '../../../vendor/autoload.php';
+use GymGride\Controller\Controller;
 
-    $name  = $_POST["name"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $passwordC = $_POST["passwordC"];
+
+class UserController extends Controller
+{
+    public function autenticar()
+    {
+        $this->getPost(4, 'name, email, password, passwordC');
+    }
+}
     
-    try{
-        if(strstr($name, " ") || (strstr($email, " ") || (strstr($password, " ")))){
-            throw new Exception('nome , email e senha não podem conter espaço!<br />');
-        }else{
-        
-        }
-    }catch(Exception $g){
-        echo $g->getMessage();
-        die();
-    }
-
-    try{
-        if(is_numeric($name)){
-            throw new Exception('nome tem que ser do tipo caractere!<br />');
-        }else{
-            
-        }
-    }catch(Exception $g){
-        echo $g->getMessage();
-        die();
-    }
-
-    try{
-        if(strlen($name) > 10){
-            throw new Exception('nome não pode ter comprimento maior que 10 caracteres!<br />');
-        }else{
-        
-        }
-    }catch(Exception $g){
-        echo $g->getMessage();
-        die();
-    }
-
-    try{
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            throw new Exception('Email não é valido!<br />');
-        }else{
-        
-        }
-    }catch(Exception $g){
-        echo $g->getMessage();
-        die();
-    }
-
-    try{
-        if(strlen($password) > 15){
-            throw new Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
-        }else{
-        
-        }
-    }catch(Exception $g){
-        echo $g->getMessage();
-        die();
-    }
+    $valid = new ValidController($name, $email, $password, $passwordC);
+    $valid->Validar();
 
 
 if (isset($_GET['login'])){
-
-    if (empty($email) || (empty($password))){
-        die("ERROR!:> Dados Vazios!");
-    }
-
 
     $user = new userModel;
     $resultado = $user->login($email, $password);
@@ -79,19 +25,7 @@ if (isset($_GET['login'])){
 
 
 if (isset($_GET['cadastro'])){
-    
-    if ($password != $passwordC){
-        die("Senha incompativel");
-    }
-
-    if (empty($name) || (empty($email) || (empty($password)))){
-        die("ERROR!:> Dados Vazios!");
-    }
-
-    //echo "$name";
-    //echo "$email";
-    //echo "$password";
-
+     
     $user = new Cadastro;
     $classname = "name";
     $user->__set($classname, $name);
@@ -113,9 +47,7 @@ if (isset($_GET['cadastro'])){
         Voltar ao Inicio : <input type="submit" value="Voltar"> </form>';
 
         echo '<hr>';
-    }
-    
-    
+    } 
 }
 
 
