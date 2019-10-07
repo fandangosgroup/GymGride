@@ -22,7 +22,7 @@ use GymGride\View\IndexView;
         }
         return $this->allPost;
     }
-    public function trainingCrudGeneration($user){
+    public function trainingCrudGeneration(){
         $m = new Model(); // a model é abstrada, aqui vai a classe que extende a model, como vai ser outro controller
         $user = $_SESSION['str_user'];
         $dados = $m->getAll('treinos', '*', "user = $user");
