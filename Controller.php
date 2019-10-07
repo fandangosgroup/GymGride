@@ -28,12 +28,11 @@ use GymGride\View\IndexView;
         $dados = $m->getAll('treinos', '*', "user = $user");
 
         //é uma ideia para criar o html da view
+        $this->html = '<tr>';
         foreach ($dados as $rows => $value) {
-            $this->html .= '<td>
-                            $dados['nomeDaColuna']
-                            </td>';
+            $this->html .= '<td>$dados['NameColumn']</td>';
         }
-
+        $this->html .= '</tr>';
     }
 
 
