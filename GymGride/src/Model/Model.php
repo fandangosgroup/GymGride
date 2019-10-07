@@ -4,7 +4,7 @@ namespace GymGride\Model;
 
     //Critical section dont touch!!!
 
-    abstract class Model
+     class Model
     {
         private $hostname = 'localhost';
         private $dbName = 'secure_login';
@@ -47,14 +47,14 @@ namespace GymGride\Model;
         // ESPERO MESMO Q VC SAIBA O Q TA FAZENDO!!
         public function getAll($table, $column, $where = 0)
         {
-        $sqlQuerry = "SELECT {$column} FROM {$table}";
+        $sqlQuery = "SELECT {$column} FROM {$table}";
         if (!empty($where)){
-            $sqlQuerry .= " WHERE {$where}";
+            $sqlQuery .= " WHERE {$where}";
         }
 
         $con = $this->dbConnect();
-        //print_r("$sqlQuerry");
-        $stmt = $con->query($sqlQuerry) or die("deu ruim na model, chama a microsoft!!");
+        //print_r("$sqlQuery");
+        $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
         
         return $stmt;
         $this->dbClose($con);
@@ -66,13 +66,49 @@ namespace GymGride\Model;
             if (!empty($where)){
                 echo "TA FAZENDO MERDA AI Ó, UPDATE SEM WHERE, CHAMA A MICROSOFT";
             }
-            $sqlQuerry = "UPDATE {$table}
+            $sqlQuery = "UPDATE {$table}
                           SET 'inativo' = 1
                           WHERE {$where}";
             $con = $this->dbConnect();
-            $stmt = $con->query($sqlQuerry) or die("deu ruim na model, chama a microsoft!!");
+            $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
             return $stmt;
             $this->dbClose($con);
+        }
+
+        public function update($table, $column, $value, $where)
+        {
+            if (!empty($where)){
+                echo "TA FAZENDO MERDA AI Ó, UPDATE SEM WHERE, CHAMA A MICROSOFT"; 
+                die();                              
+            }
+
+            $sqlQuery = "UPDATE {$table}
+                         SET {$column} = {$value}
+                         WHERE {$where}";
+
+            $con = $this->dbConnect();
+            $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
+
+            return $stmt;
+        }
+
+        public function insert($table, $columns, $values)
+        
+        {
+            $sqlQuery = "INSERT INTO {$table} (";
+            for($_x = 0; $_x < count($columns); $_x++){
+                $sqlQuery .= "$columns[$_x], ";
+            }
+
+            $sqlQuery = substr($sqlQuery, 0, -2);
+            $sqlQuery .= ") VALUES (";
+
+            for($_x = 0; $_x < count($values); $_x++){
+                $sqlQuery .= "'$values[$_x]', ";
+            }
+
+            $sqlQuery = substr($sqlQuery, 0, -2);
+            $sqlQuery .= ")";          
         }
         
     }
