@@ -6,10 +6,10 @@ namespace GymGride\Model;
 
  class Model
     {
-        private $hostname = 'localhost';
-        private $dbName = 'secure_login';
-        private $username = 'root';
-        private $senha = '';
+        private $hostname = 'us-cdbr-iron-east-05.cleardb.net';
+        private $dbName = 'heroku_b481894670aeac7';
+        private $username = 'baaf8787ff1507';
+        private $senha = '7ec630fc';
 
 
         public function dbConnect()
