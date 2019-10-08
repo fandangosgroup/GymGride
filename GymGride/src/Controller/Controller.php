@@ -5,7 +5,7 @@ namespace GymGride\Controller;
 use GymGride\View\IndexView;
 use GymGride\Model\Model;
 
- class Controller extends Model {
+class Controller extends Model {
 
     public $allPost;
     public $html;
@@ -23,7 +23,9 @@ use GymGride\Model\Model;
         }
         return $this->allPost;
     }
-    public function trainingCrudGeneration(){
+
+    public function trainingCrudGeneration()
+    {
         $m = new Model(); // a model é abstrada, aqui vai a classe que extende a model, como vai ser outro controller
         //$user = $_SESSION['str_user'];
         $dados = $m->getAll('usuarios', '*');

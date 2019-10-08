@@ -20,11 +20,27 @@ class ComposerStaticInitadc13b1dcbf0b9a1e6005663e8eea064
         ),
     );
 
+    public static $classMap = array (
+        'GymGride\\Controller\\Cadastro' => __DIR__ . '/../..' . '/GymGride/src/Controller/CadastroController.php',
+        'GymGride\\Controller\\Controller' => __DIR__ . '/../..' . '/GymGride/src/Controller/Controller.php',
+        'GymGride\\Controller\\Login' => __DIR__ . '/../..' . '/GymGride/src/Controller/Login.php',
+        'GymGride\\Controller\\UserController' => __DIR__ . '/../..' . '/GymGride/src/Controller/UserController.php',
+        'GymGride\\Controller\\Usuario' => __DIR__ . '/../..' . '/GymGride/src/Controller/Usuario.php',
+        'GymGride\\Controller\\ValidController' => __DIR__ . '/../..' . '/GymGride/src/Controller/ValidController.php',
+        'GymGride\\Model\\DbGerenciador' => __DIR__ . '/../..' . '/GymGride/src/Model/DbGerenciador.php',
+        'GymGride\\Model\\Model' => __DIR__ . '/../..' . '/GymGride/src/Model/Model.php',
+        'GymGride\\Model\\userModel' => __DIR__ . '/../..' . '/GymGride/src/Model/UserModel.php',
+        'GymGride\\View\\IndexView' => __DIR__ . '/../..' . '/GymGride/src/View/IndexView.php',
+        'GymGride\\View\\LoginView' => __DIR__ . '/../..' . '/GymGride/src/View/LoginView.php',
+        'GymGride\\View\\View' => __DIR__ . '/../..' . '/GymGride/src/View/View.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitadc13b1dcbf0b9a1e6005663e8eea064::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitadc13b1dcbf0b9a1e6005663e8eea064::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitadc13b1dcbf0b9a1e6005663e8eea064::$classMap;
 
         }, null, ClassLoader::class);
     }

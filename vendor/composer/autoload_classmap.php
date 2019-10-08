@@ -6,4 +6,16 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'GymGride\\Controller\\Cadastro' => $baseDir . '/GymGride/src/Controller/CadastroController.php',
+    'GymGride\\Controller\\Controller' => $baseDir . '/GymGride/src/Controller/Controller.php',
+    'GymGride\\Controller\\Login' => $baseDir . '/GymGride/src/Controller/Login.php',
+    'GymGride\\Controller\\UserController' => $baseDir . '/GymGride/src/Controller/UserController.php',
+    'GymGride\\Controller\\Usuario' => $baseDir . '/GymGride/src/Controller/Usuario.php',
+    'GymGride\\Controller\\ValidController' => $baseDir . '/GymGride/src/Controller/ValidController.php',
+    'GymGride\\Model\\DbGerenciador' => $baseDir . '/GymGride/src/Model/DbGerenciador.php',
+    'GymGride\\Model\\Model' => $baseDir . '/GymGride/src/Model/Model.php',
+    'GymGride\\Model\\userModel' => $baseDir . '/GymGride/src/Model/UserModel.php',
+    'GymGride\\View\\IndexView' => $baseDir . '/GymGride/src/View/IndexView.php',
+    'GymGride\\View\\LoginView' => $baseDir . '/GymGride/src/View/LoginView.php',
+    'GymGride\\View\\View' => $baseDir . '/GymGride/src/View/View.php',
 );
