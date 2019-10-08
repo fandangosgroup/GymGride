@@ -125,7 +125,11 @@ class Model {
         $sqlQuery .= ") VALUES (";
 
         for($_x = 0; $_x < count($values); $_x++){
-            $sqlQuery .= "'$values[$_x]', ";
+            preg_match('/^(now)|(SHA1)$/', $value, $matches);
+            if (!empty($matches) || intval($value){
+                $sqlQuery .= "$values[$_x], ";
+            }else{
+                $sqlQuery .= "'$values[$_x]', ";
         }
 
         $sqlQuery = substr($sqlQuery, 0, -2);
