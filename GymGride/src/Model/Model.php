@@ -4,7 +4,7 @@ namespace GymGride\Model;
 
     //Critical section dont touch!!!
 
-     class Model
+ class Model
     {
         private $hostname = 'localhost';
         private $dbName = 'secure_login';
@@ -108,7 +108,13 @@ namespace GymGride\Model;
             }
 
             $sqlQuery = substr($sqlQuery, 0, -2);
-            $sqlQuery .= ")";          
+            $sqlQuery .= ")";      
+            
+            $con = $this->dbConnect();
+            $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
+            
+            return $stmt;
+        
         }
         
     }
