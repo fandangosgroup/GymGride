@@ -3,7 +3,7 @@ namespace GymGride\Controller;
 use GymGride\Model\Model;
 use GymGride\Controller\Usuario;
 
-class Cadastro extends Usuario{
+class CadastroController extends Usuario{
 
     private $CPF;
     private $Foto;
@@ -21,7 +21,7 @@ class Cadastro extends Usuario{
         if($num == 0){
             
             $colunas = array('ID', 'nome', 'CPF', 'email', 'senha', 'numero', 'ativo', 'nivel', 'cadastro');
-            $valores = array('NULL', "$name", "$CPF", "$email", SHA1($password), "$tell", '1', '1', 'NOW()');
+            $valores = array('NULL', "$name", "$CPF", "$email", SHA1($password), "$tell", 1, 1, 'NOW()');
             $PDO->dbInsert('Usuarios', $colunas, $valores);
             $ok = 1;
         }

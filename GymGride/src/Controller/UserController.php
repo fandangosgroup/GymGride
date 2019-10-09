@@ -12,7 +12,7 @@ class UserController extends Controller
     }
 }
     
-    $valid = new ValidController($name, $email, $password, $passwordC);
+    $valid = new ValidController($name, $email, $password, $passwordC, $CPF);
     $valid->Validar();
 
 

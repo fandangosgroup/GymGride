@@ -1,7 +1,7 @@
 <?php
 
 use GymGride\Controller\Controller;
-use GymGride\Controller\Cadastro;
+use GymGride\Controller\CadastroController;
 
 use GymGride\Controller\ValidController;
 
@@ -34,10 +34,10 @@ $passwordC = $POST['passwordC'];
 $CPF = '08951512';
 $tell = '12345';
 
-$valid = new ValidController($name, $email , $password, $passwordC);
+$valid = new ValidController($name, $email , $password, $passwordC, $CPF);
 
 if (isset($_GET['cadastro'])){
-    $user = new Cadastro;
+    $user = new CadastroController;
     $user ->efetuar_cadastro($email, $name, $CPF, $password, $tell);
 }
 
