@@ -1,15 +1,13 @@
 <?php
 
-use GymGride\Controller\Controller;
+use GymGride\Controller\PageController;
 
 require 'vendor/autoload.php';
-
-$controller = new Controller();
-$controller->view();
+$p = $_GET['p'];
+$controller = new PageController();
+$controller->view($p);
 
 
 //require '/GymGride/src/Controller/testeController.php';
 
 //require('./GymGride/src/Controller/testeController.php');
-
-

@@ -5,15 +5,16 @@ namespace GymGride\Controller;
 use GymGride\View\IndexView;
 use GymGride\Model\Model;
 
-class Controller extends Model {
+class Controller {
 
     public $allPost;
     public $html;
 
-    public function view()
+    public function view($p)
     {
+
         $view = new IndexView;
-        $view->index();
+        $view->mostrar($p);
     }
     //Captura todos os posts, tornar a variavel $allPost Global.
     public function getPost()
