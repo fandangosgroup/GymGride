@@ -49,9 +49,9 @@ class Model {
             print "Erro!:deu ruim na model, chama a microsoft!!" . $e->getMessage() . "<br>";
         }
         
-        $num = $stmt->rowCount();
+        
         $this->dbClose($con);
-        return $num;
+        return $stmt;
     }
 
     public function dbClose($con)
@@ -68,11 +68,6 @@ class Model {
         if (!empty($where)){
             $sqlQuery .= " WHERE {$where}";
         }
-
-        // $con = $this->dbConnect();
-        // //print_r("$sqlQuery");
-        // $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
-        // $this->dbClose($con);
         
         $stmt = $this->dbQuery($sqlQuery);
         return $stmt;
@@ -86,10 +81,6 @@ class Model {
         $sqlQuery = "UPDATE {$table}
                         SET 'inativo' = 1
                         WHERE {$where}";
-        
-        // $con = $this->dbConnect();
-        // $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
-        // $this->dbClose($con);
         
         $stmt = $this->dbQuery($sqlQuery);
         return $stmt;
@@ -105,10 +96,6 @@ class Model {
         $sqlQuery = "UPDATE {$table}
                         SET {$column} = {$value}
                         WHERE {$where}";
-
-        // $con = $this->dbConnect();
-        // $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
-        // $this->dbClose($con);
         
         $stmt = $this->dbQuery($sqlQuery);   
         return $stmt;
@@ -136,10 +123,6 @@ class Model {
         $sqlQuery = substr($sqlQuery, 0, -2);
         $sqlQuery .= ")";      
             
-        // $con = $this->dbConnect();
-        // $stmt = $con->query($sqlQuery) or die("deu ruim na model, chama a microsoft!!");
-        // $this->dbClose($con);
-        
         $stmt = $this->dbQuery($sqlQuery);
         return $stmt;
     }

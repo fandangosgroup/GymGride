@@ -8,6 +8,7 @@ class ValidController extends Controller
     private $email;
     private $password;
     private $passwordC;
+    private $CPF;
 
     public function __construct($name, $email, $password, $passwordC, $CPF)
     {
@@ -33,12 +34,12 @@ class ValidController extends Controller
         try{
             if(!isset($passwordC)){
                 if (empty($email) || (empty($password))){
-                    throw new Exception('ERROR!: Dados Vazios!!<br />');
+                    throw new \Exception('ERROR!: Dados Vazios!!<br />');
                 }
             }else{
                 if(isset($passwordC)){
                     if (empty($name) || (empty($email) || (empty($password)))){
-                        throw new Exception('ERROR!: Dados Vazios!!<br />');
+                        throw new \Exception('ERROR!: Dados Vazios!!<br />');
                     }
                 }
             }
@@ -50,7 +51,7 @@ class ValidController extends Controller
         try{
             if(!empty($passwordC)){
                 if ($password != $passwordC){
-                    throw new Exception('As senhas não se corespodem!<br />');
+                    throw new \Exception('As senhas não se corespodem!<br />');
                 }
             }else{
             
@@ -62,7 +63,7 @@ class ValidController extends Controller
         
         try{
             if(strstr($name, " ") || (strstr($email, " ") || (strstr($password, " ")))){
-                throw new Exception('nome , email e senha não podem conter espaço!<br />');
+                throw new \Exception('nome , email e senha não podem conter espaço!<br />');
             }else{
             
             }
@@ -73,7 +74,7 @@ class ValidController extends Controller
     
         try{
             if(is_numeric($name)){
-                throw new Exception('nome tem que ser do tipo caractere!<br />');
+                throw new \Exception('nome tem que ser do tipo caractere!<br />');
             }else{
                 
             }
@@ -84,7 +85,7 @@ class ValidController extends Controller
     
         try{
             if(strlen($name) > 10){
-                throw new Exception('nome não pode ter comprimento maior que 10 caracteres!<br />');
+                throw new \Exception('nome não pode ter comprimento maior que 10 caracteres!<br />');
             }else{
             
             }
@@ -95,7 +96,7 @@ class ValidController extends Controller
     
         try{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                throw new Exception('Email não é valido!<br />');
+                throw new \Exception('Email não é valido!<br />');
             }else{
             
             }
@@ -106,7 +107,7 @@ class ValidController extends Controller
     
         try{
             if(strlen($password) > 15){
-                throw new Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
+                throw new \Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
             }else{
             
             }
