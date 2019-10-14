@@ -7,14 +7,15 @@ class MethodController extends Controller
 {
     public function MethodController($m)
     {
-        if ($m == 'autenticar'){
+        if ($m == 'login'){
 			$mth = new UserController();
-			$mth->autenticar();
+			$mth->login();
+        }else if($m == 'index'){
+            $mth = new TreinoController();
+            $mth->index();
         }
         
-        //if ($m == '')
-   
-    
+        //if ($m == '')  
     }   
 
 }

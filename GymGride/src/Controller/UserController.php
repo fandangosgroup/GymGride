@@ -2,54 +2,47 @@
 
 namespace GymGride\Controller;
 use GymGride\Controller\Controller;
-use GymGride\Model\userModel;
+use GymGride\Model\UserModel;
 
 class UserController extends Controller
 {
-    public function autenticar()
+    public function login()
     {
         $post = $this->getPost();
-        
-        //$valid = new ValidController($name, $email, $password, $passwordC, $CPF);
-        //$valid->Validar();
-
-
-        if (isset($_GET['login'])){
-
-            $email = $post['email'];
-            $password = $post['password'];
+        $email = $post['email'];
+        $password = $post['password'];
             
-            $user = new userModel;
-            $resultado = $user->login($email, $password);
-            print_r($resultado);
-        }
+        $user = new UserModel;
+        $resultado = $user->login($email, $password);
+        echo "teste";
+        print_r($resultado);
+        die();
 
-
-        if (isset($_GET['cadastro'])){
+        if ($header == 1){
+            echo '<h2>Cadastrado Com Sucesso!</h2>';
+            echo '<h1>Cadastrado com sucesso!</h1>';
+            echo '<hr>';
+            echo '<form action="../Login.html" method="POST">
+            Fazer Login : <input type="submit" value="Logar"> </form>';
             
-            $name = $post['name'];
-            $email = $post['email'];
-            $password = $post['password'];
-            $passwordC = $post['passwordC'];
-            $CPF = $post['CPF'];
-            $tell = $post['tell'];
-        
-            
-            $user = new userModel;
-            $header = $user->cadastrar($name, $email, $password, $passwordC, $CPF, $tell);
+            echo '<form action="../index.html" method="POST">
+            Voltar ao Inicio : <input type="submit" value="Voltar"> </form>';
 
-            if ($header == 1){
-                echo '<h2>Cadastrado Com Sucesso!</h2>';
-                echo '<h1>Cadastrado com sucesso!</h1>';
-                echo '<hr>';
-                echo '<form action="../Login.html" method="POST">
-                Fazer Login : <input type="submit" value="Logar"> </form>';
-                
-                echo '<form action="../index.html" method="POST">
-                Voltar ao Inicio : <input type="submit" value="Voltar"> </form>';
-
-                echo '<hr>';
-            } 
-        }
+            echo '<hr>';
+        } 
     }
 }
+/* 
+
+if (isset($_GET['cadastro'])){
+    
+    $name = $post['name'];
+    $email = $post['email'];
+    $password = $post['password'];
+    $passwordC = $post['passwordC'];
+    $CPF = $post['CPF'];
+    $tell = $post['tell'];
+
+    
+    $user = new userModel;
+    $header = $user->cadastrar($name, $email, $password, $passwordC, $CPF, $tell); */

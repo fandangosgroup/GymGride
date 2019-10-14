@@ -4,7 +4,7 @@ namespace GymGride\Model;
 
 use GymGride\Model\Model;
 
-class userModel extends Model
+class UserModel extends Model
 {
     public function login($email, $senha)
     {
