@@ -14,11 +14,8 @@ class UserController extends Controller
             
         $user = new UserModel;
         $resultado = $user->login($email, $password);
-        echo "teste";
-        print_r($resultado);
-        die();
 
-        if ($header == 1){
+   /*      if ($header == 1){
             echo '<h2>Cadastrado Com Sucesso!</h2>';
             echo '<h1>Cadastrado com sucesso!</h1>';
             echo '<hr>';
@@ -28,8 +25,8 @@ class UserController extends Controller
             echo '<form action="../index.html" method="POST">
             Voltar ao Inicio : <input type="submit" value="Voltar"> </form>';
 
-            echo '<hr>';
-        } 
+            echo '<hr>'; */
+        //}
     }
 }
 /* 

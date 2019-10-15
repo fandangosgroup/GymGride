@@ -10,7 +10,13 @@ class Model {
     private $dbName = 'heroku_b481894670aeac7';
     private $username = 'baaf8787ff1507';
     private $senha = '7ec630fc';
-
+    
+    public function ver($v){
+        echo "<pre>";
+        print_r($v);
+        echo "</pre>";
+        die();
+    }
     public function dbConnect()
     {
         try {
@@ -40,7 +46,6 @@ class Model {
     {
         $con = $this->dbConnect();
         
-        print_r($sqlQuery);
         try {
             $stmt = $con->query($sqlQuery) or die("error chama a microsoft!!");
         }
