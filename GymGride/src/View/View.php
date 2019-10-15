@@ -23,24 +23,45 @@ abstract class View
         return $array;
     }
 
-    public function replace($files, $values)
+    public function replace($files, $values, $num = 1)
     {
         $file1 = $files[0];
         $file2 = $files[1];
         $items = '';
         $x = 0;
+        $z = 0;
+        $h = 0;
+      
+        while($h < $num){
+             
+            $y = 0;
+            $x = 0;
+            $file1 = $files[0];
+            while ($y <= 9){
+            
+            $file1 = str_replace(" { $x } ", $values[$z][$x], $file1);
         
-        foreach ($values as $key => $value) {
-            $allValues[$key] = $value;
+            $y++;
             $x++;
-            $file1 = str_replace(" { $key } ", $allValues[$key], $file1);
-            //var_dump($key);
-            //print_r($file1);
-            $items = $file1;
+            }
+
+
+            $z = $z + 1;
+            // foreach ($values[$x] as $key => $value) {
+            //     $allValues[$key] = $value;
+            //     $x++;
+            //     print_r($key);
+            //     $file1 = str_replace(" { $key } ", $allValues[$key], $file1);
+            //     //var_dump($key);
+            //     //print_r($file1);
+            //     $items = $file1;
+            // }
+        
+            
+            $items .= $file1;
+            
+            $h = $h + 1;
         }
-        //print_r($allValues);
-        //print_r($x);
-        $y = 0;
         
         
         // //while ($y < $x){
@@ -52,5 +73,12 @@ abstract class View
         $file2 = str_replace('{items}', $items, $file2);
         //print_r($file2);
         return $file2;
+    }
+
+    public function ver($v){
+        echo "<pre>";
+        print_r($v);
+        echo "</pre>";
+        die();
     }
 }

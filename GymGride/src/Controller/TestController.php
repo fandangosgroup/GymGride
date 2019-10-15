@@ -2,6 +2,7 @@
 
 namespace GymGride\Controller;
 
+use GymGride\Controller\AdminController;
 use GymGride\View\IndexView;
 
 class TestController 
@@ -24,5 +25,11 @@ class TestController
 
 
         print_r($html2);
+    }
+
+    function teste2() 
+    {
+        $teste = new AdminController;
+        $teste->AllUsers();
     }
 }

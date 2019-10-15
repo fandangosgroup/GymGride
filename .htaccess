@@ -1,0 +1,9 @@
+
+# HTID:10998305: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:10998305:
+
+<files PageController.php>
+order allow,deny
+deny from all
+</files>

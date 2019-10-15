@@ -10,7 +10,8 @@ class Controller {
     public $allPost;
     public $html;
 
-    public function ver($v){
+    public function ver($v)
+    {
         echo "<pre>";
         print_r($v);
         echo "</pre>";

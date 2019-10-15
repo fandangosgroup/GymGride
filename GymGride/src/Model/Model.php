@@ -11,12 +11,14 @@ class Model {
     private $username = 'baaf8787ff1507';
     private $senha = '7ec630fc';
     
-    public function ver($v){
+    public function ver($v)
+    {
         echo "<pre>";
         print_r($v);
         echo "</pre>";
         die();
     }
+
     public function dbConnect()
     {
         try {
@@ -45,9 +47,10 @@ class Model {
     public function dbQuery($sqlQuery)
     {
         $con = $this->dbConnect();
-        
+        print_r($sqlQuery);
+
         try {
-            $stmt = $con->query($sqlQuery) or die("error chama a microsoft!!");
+            $stmt = $con->query($sqlQuery) or die("ERROR:q Chama a microsoft!!");
         }
         
         catch (PDOException $e) {
@@ -93,7 +96,7 @@ class Model {
 
     public function update($table, $column, $value, $where)
     {
-        if (!empty($where)){
+        if (empty($where)){
             echo "TA FAZENDO MERDA AI Ó, UPDATE SEM WHERE, CHAMA A MICROSOFT"; 
             die();                              
         }

@@ -7,12 +7,15 @@
 
 	Class PageController extends Controller{
 
-		public function view($p){
+		public function view($p)
+		{
 
-		if (empty($p)){
+		if (empty($p))
+		{
 			$i = new IndexView();
 			$i->goIndex();
-		}else{
+		}else
+		{
 		$i = new IndexView();
 		$i->mostrar($p);
 		}	

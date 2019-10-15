@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 if(isset($_GET['t'])){
     
     $controller = new TestController();
-    $controller->teste();
+    $controller->teste2();
 
 }else {
     if(!isset($_GET['m'])){

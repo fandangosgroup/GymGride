@@ -6,7 +6,8 @@
     Class TreinoController extends Controller{
         private $dados;
 
-        public function index(){
+        public function index()
+        {
             $this->allPost = $this->getPost();            
             $m = new Treino();
             $m->getAll("treino", "*", "user = $this->allPost['str_login']");
