@@ -1,0 +1,82 @@
+/* Lógico_1: */
+
+CREATE TABLE Usuarios (
+    ID_User int not null auto_increment PRIMARY KEY,
+    Nome varchar(30),
+    Email varchar(50),
+    Senha varchar(30),
+    CPF varchar(12),
+    Telefone varchar(20),
+    Token varchar(512),
+    Nivel INT(1) UNSIGNED NOT NULL DEFAULT '1',
+    Ativo BOOL NOT NULL DEFAULT '1',
+    Cadastro DATETIME NOT NULL,
+    fk_Ficha_de_Treino_ID_Treino int not null auto_increment,
+    fk_Pagamento_ID_Pagamento int not null auto_increment
+);
+
+CREATE TABLE Ficha_de_Treino (
+    ID_Treino int not null auto_increment PRIMARY KEY,
+    User_XP int(10) not null,
+    Peso_Atual float,
+    Altura float,
+    Bodyfat float,
+    Serie varchar(10),
+    fk_Series_ID_Serie int not null auto_increment
+);
+
+CREATE TABLE Pagamento (
+    ID_Pagamento int not null auto_increment PRIMARY KEY,
+    Cod_Fatura varchar(20),
+    Fatura float not null,
+    Data_Fatura date,
+    Pagamento varchar(20)
+);
+
+CREATE TABLE Series (
+    ID_Serie int not null auto_increment PRIMARY KEY,
+    A varchar(500),
+    B varchar(500),
+    C varchar(500),
+    D varchar(500),
+    E varchar(500)
+);
+
+CREATE TABLE Alternativa_de_Exercicios (
+    A varchar(500),
+    D varchar(500),
+    C varchar(500),
+    E varchar(500),
+    B varchar(500),
+    ID int not null auto_increment PRIMARY KEY
+);
+
+CREATE TABLE Exercicios (
+    fk_Series_ID_Serie int not null auto_increment,
+    fk_Alternativa_de_Exercicios_ID int not null auto_increment
+);
+ 
+ALTER TABLE Usuarios ADD CONSTRAINT FK_Usuarios_2
+    FOREIGN KEY (fk_Ficha_de_Treino_ID_Treino)
+    REFERENCES Ficha_de_Treino (ID_Treino)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Usuarios ADD CONSTRAINT FK_Usuarios_3
+    FOREIGN KEY (fk_Pagamento_ID_Pagamento)
+    REFERENCES Pagamento (ID_Pagamento)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Ficha_de_Treino ADD CONSTRAINT FK_Ficha_de_Treino_2
+    FOREIGN KEY (fk_Series_ID_Serie)
+    REFERENCES Series (ID_Serie)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Exercicios ADD CONSTRAINT FK_Exercicios_1
+    FOREIGN KEY (fk_Series_ID_Serie)
+    REFERENCES Series (ID_Serie)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Exercicios ADD CONSTRAINT FK_Exercicios_2
+    FOREIGN KEY (fk_Alternativa_de_Exercicios_ID)
+    REFERENCES Alternativa_de_Exercicios (ID)
+    ON DELETE RESTRICT;
