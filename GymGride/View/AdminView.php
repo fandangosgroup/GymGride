@@ -16,6 +16,6 @@ class AdminView extends View
         //$this->ver($values);
         $html = $this->replace($files, $values, $num);
 
-        print_r($html);
+        echo($html);
     }
 }

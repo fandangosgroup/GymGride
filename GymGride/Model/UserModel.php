@@ -8,7 +8,7 @@ class UserModel extends Model
 {
     public function login($email, $senha)
     {
-        $stmt = $this->getAll('usuarios', 'id, nivel, nome', "email = '$email' and senha = SHA1($senha)");
+        $stmt = $this->getAll('Usuarios', 'ID_User, Nome, Nivel', "Email = '$email' and Senha = SHA1($senha)");
     
         $num = $stmt->rowCount();
         
@@ -19,9 +19,16 @@ class UserModel extends Model
             $bool = $this->getToken();
             if ($bool){
                 echo 'token correto';
+
+                $_SESSION['Nome'] = $resultado[0]['Nome'];
+                $_SESSION['ID'] = $resultado[0]['ID_User'];
+                $_SESSION['Nivel'] = $resultado[0]['Nivel'];
+                $this->getNivel();
+                //print_r($_SESSION);
             }else {
                 echo 'token errado!';
             }
+            return true;
 
         }else{
             return false;
@@ -44,8 +51,8 @@ class UserModel extends Model
 
         if($res == false){
             
-            $colunas = array('ID', 'nome', 'CPF', 'email', 'senha', 'numero', 'ativo', 'nivel', 'cadastro');
-            $valores = array('NULL', "$name", "$CPF", "$email", SHA1($password), "$tell", 1, 1, 'NOW()');
+            $colunas = array('ID_User', 'Nome', 'Email', 'Senha', 'CPF', 'Telefone', 'Nivel', 'Ativo', 'Cadastro');
+            $valores = array('NULL', "$name", "$email", SHA1($password), "$CPF", "$tell", 1, 1, 'NOW()');
             $this->dbInsert('Usuarios', $colunas, $valores);
             $ok = 1;
         }
@@ -65,13 +72,13 @@ class UserModel extends Model
             $token .= rand(1, 99999);
         }
         $token = MD5($token);
-        $token .= MD5($dados[0]['nome']);
-        $token .= MD5($dados[0]['id']);
+        $token .= MD5($dados[0]['Nome']);
+        $token .= MD5($dados[0]['ID_User']);
         $token .= MD5(date('h-i-s'));
         $_SESSION['token'] = $token;
-        $id = $dados[0]['id'];
-        $this->update('Usuarios','token' ,"'$token'" ,"ID = $id");
-        print_r($token);
+        $id = $dados[0]['ID_User'];
+        $this->update('Usuarios','token' ,"'$token'" ,"ID_User = $id");
+        //print_r($token);
     }
 
     public function getToken()
@@ -83,6 +90,21 @@ class UserModel extends Model
         if ($num == 1){
             return true;
         }else{
+            return false;
+        }
+    }
+
+    public function getNivel()
+    {
+        $stmt = $this->getAll('Usuarios', 'Nivel', "Token = '$_SESSION[token]' and Nivel = '$_SESSION[Nivel]'");
+        //print_r($stmt);
+        $num = $stmt->rowCount();
+
+        if ($num == 1){
+            echo 'Nivel Compativel';
+            return true;
+        }else{
+            echo 'Nivel Incompativel';
             return false;
         }
     }

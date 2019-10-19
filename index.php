@@ -6,6 +6,8 @@ use GymGride\Controller\TestController;
 
 require 'vendor/autoload.php';
 
+$GLOBALS['Router'] = 1;
+
 if(isset($_GET['t'])){
     
     $controller = new TestController();

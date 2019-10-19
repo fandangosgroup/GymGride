@@ -6,16 +6,16 @@ abstract class View
 {
     public function mostrar($name)
     {
-         header("location: /GymGride/src/View/$name.html");
+         header("location: /GymGride/View/$name.html");
     }
     public function goIndex(){
-    	header("location: /GymGride/src/View/index.html");
+    	header("location: /GymGride/View/index.html");
     }
 
     public function render($arquivo1, $arquivo2)
     {
-        $file1 = file_get_contents("GymGride/src/View/content/$arquivo1.html");
-        $file2 = file_get_contents("GymGride/src/View/$arquivo2.html");
+        $file1 = file_get_contents("GymGride/View/content/$arquivo1.html");
+        $file2 = file_get_contents("GymGride/View/$arquivo2.html");
 
         $array[0] = $file1;
         $array[1] = $file2;

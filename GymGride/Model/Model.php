@@ -23,7 +23,9 @@ class Model {
     {
         try {
             $con = new \PDO("mysql:host=$this->hostname;dbname=$this->dbName", "$this->username", "$this->senha");
-            $con->exec("set names utf8");
+            $con->exec("SET @@auto_increment_increment=1;");
+            $con->exec("SET @@global.time_zone = '+3:00';");
+            $con->exec("SET time_zone='America/Sao_Paulo';");
             return $con;
         }
     

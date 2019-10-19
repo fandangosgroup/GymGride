@@ -3,7 +3,25 @@
 php_value display_errors 1
 # DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:10998305:
 
-<files PageController.php>
+Options All -Indexes
+
+<files *.*>
 order allow,deny
 deny from all
+</files>
+
+<files *.html*>
+allow from all
+</files>
+
+<files *.png*>
+allow from all
+</files>
+
+<files *.jpg*>
+allow from all
+</files>
+
+<files *.css*>
+allow from all
 </files>
