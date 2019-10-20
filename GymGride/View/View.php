@@ -4,12 +4,14 @@ namespace GymGride\View;
 
 abstract class View 
 {
-    public function mostrar($name)
+    public function mostrar($name = 'index')
     {
-         header("location: /GymGride/View/$name.html");
+        $file2 = file_get_contents("GymGride/View/$name.html");
+        print_r($file2);
     }
+
     public function goIndex(){
-    	header("location: /GymGride/View/index.html");
+    	
     }
 
     public function render($arquivo1, $arquivo2)

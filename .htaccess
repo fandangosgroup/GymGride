@@ -1,0 +1,44 @@
+# HTID:10998305: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:10998305:
+
+Options All -Indexes
+
+<files vendor>
+order allow,deny
+deny from all
+</files>
+
+<files *.*>
+order allow,deny
+deny from all
+</files>
+
+<files index.php>
+allow from all
+</files>
+
+<files *.css*>
+allow from all
+</files>
+
+<files *.png*>
+allow from all
+</files>
+
+<files *.jpg*>
+allow from all
+</files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On 
+
+    RewriteRule ^Logar/?$ /?p=Login&m [NC,L]
+
+    RewriteRule ^Autenticar/?$ /?m=login&p[NC,L]
+    
+    RewriteRule ^Cadastrar/?$ /?p=Cadastro&m [NC,L]
+    
+    RewriteRule ^NovoCadastro/?$ /?m=cadastro&p[NC,L]
+
+</IfModule>
