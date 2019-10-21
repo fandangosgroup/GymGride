@@ -7,11 +7,7 @@ abstract class View
     public function mostrar($name = 'index')
     {
         $file2 = file_get_contents("GymGride/View/$name.html");
-        print_r($file2);
-    }
-
-    public function goIndex(){
-    	
+        echo($file2);
     }
 
     public function render($arquivo1, $arquivo2)
