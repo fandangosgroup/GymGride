@@ -29,7 +29,9 @@ class TestController
 
     function teste2() 
     {
-        $teste = new AdminController;
-        $teste->AllUsers();
+        /* $teste = new AdminController;
+        $teste->AllUsers(); */
+        $t = new TreinoController();
+        $t->getDados();
     }
 }

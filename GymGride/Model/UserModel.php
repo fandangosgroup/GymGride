@@ -19,10 +19,9 @@ class UserModel extends Model
             $bool = $this->getToken();
             if ($bool){
                 echo 'token correto';
-
-                $_SESSION['Nome'] = $resultado[0]['Nome'];
-                $_SESSION['ID'] = $resultado[0]['ID_User'];
-                $_SESSION['Nivel'] = $resultado[0]['Nivel'];
+                $_SESSION['str_nome'] = $resultado[0]['Nome'];
+                $_SESSION['int_id'] = $resultado[0]['ID_User'];
+                $_SESSION['int_nivel'] = $resultado[0]['Nivel'];
                 $this->getNivel();
                 //print_r($_SESSION);
             }else {
@@ -51,7 +50,7 @@ class UserModel extends Model
 
         if($res == false){
             
-            $colunas = array('ID_User', 'Nome', 'Email', 'Senha', 'CPF', 'Telefone', 'Nivel', 'Ativo', 'Cadastro');
+            $colunas = array('ID_User', 'Nome', 'Email', 'Senha', 'CPF', 'Telefone', 'Nivel', 'Ativo', 'Dta_Cadastro');
             $valores = array('NULL', "$name", "$email", SHA1($password), "$CPF", "$tell", 1, 1, 'NOW()');
             $this->dbInsert('Usuarios', $colunas, $valores);
             $ok = 1;
@@ -96,8 +95,9 @@ class UserModel extends Model
 
     public function getNivel()
     {
-        $stmt = $this->getAll('Usuarios', 'Nivel', "Token = '$_SESSION[token]' and Nivel = '$_SESSION[Nivel]'");
+        $stmt = $this->getAll('Usuarios', 'Nivel', "Token = '$_SESSION[token]' and Nivel = '$_SESSION[int_nivel]'");
         //print_r($stmt);
+        //$this->ver($_SESSION);
         $num = $stmt->rowCount();
 
         if ($num == 1){

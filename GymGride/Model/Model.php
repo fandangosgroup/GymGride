@@ -52,7 +52,7 @@ class Model {
         print_r($sqlQuery);
 
         try {
-            $stmt = $con->query($sqlQuery) or die("ERROR:q Chama a microsoft!!");
+            $stmt = $con->query($sqlQuery); //("ERROR:q Chama a microsoft!!");
         }
         
         catch (PDOException $e) {

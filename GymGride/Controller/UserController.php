@@ -3,17 +3,22 @@
 namespace GymGride\Controller;
 use GymGride\Controller\Controller;
 use GymGride\Model\UserModel;
+use GymGride\Controller\TreinoController;
 
 class UserController extends Controller
 {
     public function login()
     {
+        session_start();
         $post = $this->getPost();
         $email = $post['email'];
         $password = $post['password'];
             
         $user = new UserModel;
         $resultado = $user->login($email, $password);
+
+        $t = new TreinoController;
+        $t->getDados();
     }
 
     public function cadastro()
