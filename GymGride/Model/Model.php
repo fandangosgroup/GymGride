@@ -49,10 +49,9 @@ class Model {
     public function dbQuery($sqlQuery)
     {
         $con = $this->dbConnect();
-        print_r($sqlQuery);
-
+        
         try {
-            $stmt = $con->query($sqlQuery); //("ERROR:q Chama a microsoft!!");
+            $stmt = $con->query($sqlQuery) or die("ERROR:q Chama a microsoft!!");
         }
         
         catch (PDOException $e) {

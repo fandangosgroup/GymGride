@@ -2,6 +2,7 @@
 
 namespace GymGride\Model;
 
+use GymGride\Controller\SessionController;
 use GymGride\Model\Model;
 
 class UserModel extends Model
@@ -13,22 +14,8 @@ class UserModel extends Model
         $num = $stmt->rowCount();
         
         if($num == 1){
-            $resultado = $this->getResult($stmt);
-            $this->setToken($resultado);
-            
-            $bool = $this->getToken();
-            if ($bool){
-                echo 'token correto';
-                $_SESSION['str_nome'] = $resultado[0]['Nome'];
-                $_SESSION['int_id'] = $resultado[0]['ID_User'];
-                $_SESSION['int_nivel'] = $resultado[0]['Nivel'];
-                $this->getNivel();
-                //print_r($_SESSION);
-            }else {
-                echo 'token errado!';
-            }
-            return true;
-
+            $resultado = $this->getResult($stmt); 
+            return $resultado;
         }else{
             return false;
         }
@@ -36,17 +23,17 @@ class UserModel extends Model
     
     public function cadastrar($name, $email, $password, $passwordC, $CPF, $tell)
     {
-        // $email = $this->email;
-        // $password = $this->password;
-
-        $stmt = $this->login($email, $password);
-        //$num = $PDO->dbCheck($stmt);
-        $res = $stmt;
-        //print_r($res);
+        $stmt = $this->getAll('Usuarios', 'ID_User, Nome, Nivel', "Email = '$email'");
+    
+        $num = $stmt->rowCount();
         
-        if ($res == false){
-            echo "res é falso";
+        if ($num == 1){
+            $bool = true;
+        }else {
+            $bool = false;
         }
+
+        $res = $bool;
 
         if($res == false){
             
@@ -74,19 +61,28 @@ class UserModel extends Model
         $token .= MD5($dados[0]['Nome']);
         $token .= MD5($dados[0]['ID_User']);
         $token .= MD5(date('h-i-s'));
-        $_SESSION['token'] = $token;
+        
+        
+        $Session = new SessionController();
+        $Session->setValue('User_Token',$token);
+        
+        
         $id = $dados[0]['ID_User'];
         $this->update('Usuarios','token' ,"'$token'" ,"ID_User = $id");
         //print_r($token);
     }
 
-    public function getToken()
+    public function getToken()                       
     {
-        $stmt = $this->getAll('usuarios', 'token', "token = '$_SESSION[token]'");
+        $Session = new SessionController();
+        $token = $Session->getValue('User_Token');
+        
+        $stmt = $this->getAll('usuarios', 'token', "token = '$token'");
         //print_r($stmt);
         $num = $stmt->rowCount();
 
         if ($num == 1){
+            echo 'token valido';
             return true;
         }else{
             return false;
@@ -95,7 +91,11 @@ class UserModel extends Model
 
     public function getNivel()
     {
-        $stmt = $this->getAll('Usuarios', 'Nivel', "Token = '$_SESSION[token]' and Nivel = '$_SESSION[int_nivel]'");
+        $Session = new SessionController();
+        $token = $Session->getValue('User_Token');
+        $Nivel = $Session->getValue('UsuarioNivel');
+        
+        $stmt = $this->getAll('Usuarios', 'Nivel', "Token = '$token' and Nivel = '$Nivel'");
         //print_r($stmt);
         //$this->ver($_SESSION);
         $num = $stmt->rowCount();

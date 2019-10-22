@@ -14,7 +14,7 @@ class AdminController extends Controller
         
         $users = $array[0];
         $num = $array[1];
-
+        
         $adminView = new AdminView;
         $adminView->Adminrender($users, $num);
         

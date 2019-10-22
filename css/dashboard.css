@@ -1,0 +1,55 @@
+#div_centro
+{
+    background-color:#DCDCDC;
+
+    height: 580px;
+    margin: 40px 0px 0px;
+}
+body
+{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    background-color: #1E90FF;
+    margin: 0px 0px 0px;
+}
+hr
+{
+    color: black;
+    background-color: black;
+}
+#linha
+{
+    background-color: black;
+    height: 1px;
+}
+
+.logo
+{
+    color: rgb(9, 250, 9);
+    margin: -55px 555px -30px;
+    border: black;
+}
+
+#nome
+{
+    margin: -50px 60px 0px;
+}
+
+#image
+{
+    width: 35px;
+    margin: 10px 10px -5px; 
+}
+
+#color
+{
+    color:rgb(9, 250, 9);
+}
+
+#exit
+{
+    float:right;
+    margin: -20px 5px -1px; 
+    font-size: 25px; 
+    color: red;
+    background-color: royalblue;
+}

@@ -6,19 +6,21 @@
 
     Class TreinoController extends Controller{
 
+        public function Dados(){
+            $treino = new Treino;
+            $array = $treino->getDados();
 
-        public function getDados()
-        {   
-            //$this->ver($_SESSION);
-       
-            $m = new Treino();
-            $array = $m->getAll('Serie', '*', "ID_serie = '" . $_SESSION["int_id"] . "'");
+            if ($array != false){
+                $v = new TreinoView();
+                $file = $v->render('item', 'list');
+                $html = $v->replace($file, $array);
             
-            $v = new TreinoView();
-            $file = $v->render('item', 'list');
-            $html = $v->replace($file, $array);
+                print_r($html);
+                $this->ver($_SESSION);
+            }else {
+                echo 'Treino Nao Encontrado';
+            }
             
-            print_r($html);
-            $this->ver($_SESSION);
         }
+       
     }

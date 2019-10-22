@@ -13,7 +13,7 @@ class AdminView extends View
         $files = $this->render($file1, $file2);
         
         $values = $dados;
-        //$this->ver($values);
+      
         $html = $this->replace($files, $values, $num);
 
         echo($html);

@@ -23,6 +23,13 @@ class MethodController extends Controller
             $mth = new TreinoController();
             $mth->index();
         }
+
+        if ($m == 'Logout'){
+            $Session = new SessionController();
+            $Session->logout();
+            header("refresh: 0");
+            header("Location: /");
+        }
     }   
 
 }

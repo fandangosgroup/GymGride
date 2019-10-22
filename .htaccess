@@ -35,10 +35,14 @@ allow from all
 
     RewriteRule ^Logar/?$ /?p=Login&m [NC,L]
 
-    RewriteRule ^Autenticar/?$ /?m=login&p[NC,L]
+    RewriteRule ^Autenticar/?$ /?m=login&p [NC,L]
     
     RewriteRule ^Cadastrar/?$ /?p=Cadastro&m [NC,L]
     
-    RewriteRule ^NovoCadastro/?$ /?m=cadastro&p[NC,L]
+    RewriteRule ^NovoCadastro/?$ /?m=cadastro&p [NC,L]
+
+    RewriteRule ^Dashboard?$ /?p=Dashboard&m [NC,L]
+
+    RewriteRule ^Logout/?$ /?m=Logout&p [NC,L]
 
 </IfModule>

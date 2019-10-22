@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Users</title>
-    <link rel="stylesheet" type="text/css" href="/GymGride/View/css/list.css">
+    <link rel="stylesheet" type="text/css" href="/css/list.css">
 </head>
 <body>
     <div id="customers">
-    <table  border=1>
+    <table  border=1 id="customers">
             <tr>
-                <th> Id </th>
+                <th> Id_User </th>
+                <th> ID_Pagamento </th>
+                <th> ID_Exp </th>
+                <th> ID_Ser </th>
+                <th> ID_pho </th>
                 <th> Nome </th>
                 <th> E-mail </th>
-                <th> Password </th>
-                <th> CPF </th>
+				<th> Senha </th>
+				<th> CPF </th>
                 <th> Telefone </th>
                 <th> Token </th>
-                <th> Nivel </th>
-                <th> Ativo </th>
+				<th> Nivel </th>
+				<th> Ativo </th>
                 <th> Data De Cadastro </th>
-                <th> ID_Treino </th>
-                <th> ID_Pagamento </th>
             </tr>
             {items}
     </table>
