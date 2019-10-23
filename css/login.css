@@ -1,0 +1,63 @@
+#cabecalho{
+    background: rgb(3, 91, 192);
+    background-size: 100px;
+    margin: -40px -8px 100px;
+    height: 80px;
+}
+
+.form{
+    border: thistle;
+    margin: 0px 500px 0px;
+
+}
+
+h1{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.border{
+    height: 110px;
+    border: 3px solid rgb(163, 163, 163);
+    margin: 0px 0px 0px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    padding: 5px;
+    
+}
+
+input{
+    border: 0px solid white;
+    background-color: rgb(216, 212, 212);
+    width: 90%;
+    margin: 0px 10px 0px;
+}
+
+.inputs input:hover {
+    padding: 2px;
+    background-color: rgb(175, 173, 173);
+}
+
+.button input {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border: 2px solid rgb(3, 105, 238);
+    color: white;
+    margin: 0px 500px 0px;
+    background-color: rgb(3, 105, 238);
+    width: 120px;
+}
+
+.btn input:hover {
+    background-color: rgb(3, 89, 201);
+    border: 2px solid rgb(3, 89, 201);
+}
+
+.final{
+    background: rgb(3, 91, 192);
+    height: 80px;
+    margin: 110px -8px 0px;
+}
+
+#site{
+    background-color: whitesmoke;
+    margin: 0px 0px 0px;
+}

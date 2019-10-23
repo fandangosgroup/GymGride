@@ -4,46 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>|-Fazer Cadastro-|</title>
+    <link rel="icon" href="images/favicon2.ico" />
+    <title>Cadastro de Usuario</title>
     <link rel="stylesheet" type="text/css" href="./css/cadastro.css">
 </head>
 <body>
-    <h2>Site GymGride v1.0</h2>
-    <hr>
-<form action="NovoCadastro" method="POST">
+    
+        <div id="cabecalho">
+        </div>
+        <h1 style="color: rgb(63, 255, 5); margin: -140px 555px 0px;">GymGride</h1>
+            <div class="form">
+                <div class="border inputs">
+                <form action="NovoCadastro" method="POST">
+                        Insira Seu Nome:<br>
+                        <input type="text" name="name">
+                        <br>
+                        Insira Seu Email:<br>
+                        <input type="email" name="email">
+                        <br>
+                        Insira Seu CPF:<br>
+                        <input type="text" name="CPF">
+                        <br>
+                        Insira Seu Telefone:<br>
+                        <input type="text" name="tell">
+                        <br>
+                        Insira Sua Senha:<br>
+                        <input type="password" name="password">
+                        <hr style="border: 1px solid rgb(163, 163, 163);">
+                        Confirme sua senha:<br>
+                        <input type="password" name="passwordC">
+                
+                <br>
+                </div>       
+            </div>
+                <div class="button btn">
+                    <br>
+                    <input type="submit" value="Fazer Cadastro">
+                </form>
+                </div>
+    
+    
 
-    <table border="solid">
-        <tr>
-          <th>Fazer Cadastro:</th>
-        </tr>
-        <tr>
-          <td>Insira Seu nome: <input type="text" name="name"></td>
-        </tr>
-        <tr>
-          <td>Insira Seu CPF: <input type="text" name="CPF"></td>
-        </tr>
-        <tr>
-          <td>Insira Seu Telefone: <input type="text" name="tell"></td>
-        </tr>
-        <tr>
-          <td>Insira Seu email: <input type="email" name="email"></td>
-        </tr>
-        <tr>
-          <td>Insira Sua senha: <input type="password" name="password"></td>
-        </tr>
-    </table> 
-    <hr width="500" align="left">
-    <table border="solid">
-        <tr>
-          <td>Confirme Sua senha: <input type="password" name="passwordC"></td>
-        </tr>
-       
-    </table>
-    <hr width="500" align="left">
-  
-    <input id="btn-cadastro" type="submit" value="Fazer Cadastro">
 
-  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
