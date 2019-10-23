@@ -18,8 +18,10 @@ class ValidController extends Controller
         if($this->validaCPF($CPF))
         {
             $this->CPF = $CPF;
+        }else {
+            die('CPF Invalido!');
         }
-        
+
         $this->password = $password;
         $this->passwordC = $passwordC;
     }
@@ -43,7 +45,7 @@ class ValidController extends Controller
                     }
                 }
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }
@@ -56,7 +58,7 @@ class ValidController extends Controller
             }else{
             
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }
@@ -67,7 +69,7 @@ class ValidController extends Controller
             }else{
             
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }
@@ -78,7 +80,7 @@ class ValidController extends Controller
             }else{
                 
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }
@@ -89,7 +91,7 @@ class ValidController extends Controller
             }else{
             
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }
@@ -100,7 +102,7 @@ class ValidController extends Controller
             }else{
             
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }
@@ -111,7 +113,7 @@ class ValidController extends Controller
             }else{
             
             }
-        }catch(Exception $g){
+        }catch(\Exception $g){
             echo $g->getMessage();
             die();
         }

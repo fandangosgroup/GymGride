@@ -30,6 +30,10 @@ allow from all
 allow from all
 </files>
 
+<files *.ico*>
+allow from all
+</files>
+
 <IfModule mod_rewrite.c>
     RewriteEngine On 
 
@@ -44,5 +48,7 @@ allow from all
     RewriteRule ^Dashboard?$ /?p=Dashboard&m [NC,L]
 
     RewriteRule ^Logout/?$ /?m=Logout&p [NC,L]
+
+    RewriteRule ^Invalido/?$ /?p=invalido&m [NC,L]
 
 </IfModule>

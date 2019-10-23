@@ -18,7 +18,7 @@ class UserController extends Controller
           // Destrói a sessão por segurança
           session_destroy();
           // Redireciona o visitante de volta pro login
-          header("Location: /"); exit;
+          header("Location: /Invalido"); exit;
       }
     }
 
@@ -47,7 +47,7 @@ class UserController extends Controller
         $post = $this->getPost();
         $email = $post['email'];
         $password = $post['password'];
-            
+
         $user = new UserModel;
         $resultado = $user->login($email, $password);
         
@@ -75,7 +75,9 @@ class UserController extends Controller
         $CPF = $post['CPF'];
         $tell = $post['tell'];
 
-    
+        $Valida = new ValidController($name, $email, $password, $passwordC, $CPF);
+        $Valida->Validar();
+        
         $user = new userModel;
         $header = $user->cadastrar($name, $email, $password, $passwordC, $CPF, $tell);
 

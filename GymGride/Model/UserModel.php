@@ -9,7 +9,7 @@ class UserModel extends Model
 {
     public function login($email, $senha)
     {
-        $stmt = $this->getAll('Usuarios', 'ID_User, Nome, Nivel', "Email = '$email' and Senha = SHA1($senha)");
+        $stmt = $this->getAll('Usuarios', 'ID_User, Nome, Nivel', "Email = '$email' and Senha = SHA1('$senha')");
     
         $num = $stmt->rowCount();
         
