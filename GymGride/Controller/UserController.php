@@ -83,7 +83,7 @@ class UserController extends Controller
 
         if ($header == 1)
         {
-            $userView = UserView;
+            $userView = new UserView;
             $userView->Cadastro();
         }
     }
