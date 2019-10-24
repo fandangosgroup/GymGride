@@ -1,10 +1,10 @@
 drop table Usuarios;
 CREATE TABLE Usuarios (
     ID_User int not null auto_increment PRIMARY KEY,
-    ID_Pag int not null,
+    ID_Pagamento int not null,
     ID_XP int not null,
-    ID_Ser int not null,
-    ID_pho int not null,
+    ID_Serie int not null,
+    ID_photo int not null,
     Nome varchar(30),
     Email varchar(50),
     Senha varchar(100),
@@ -13,9 +13,15 @@ CREATE TABLE Usuarios (
     Token varchar(512),
     Nivel INT(1) UNSIGNED NOT NULL DEFAULT '1',
     Ativo BOOL NOT NULL DEFAULT '1',
-    Dta_Cadastro DATETIME NOT NULL
+    Dta_Cadastro DATETIME NOT NULL,
+    CONSTRAINT fk_UserPag FOREIGN KEY (ID_Pagamento) REFERENCES pagamento (ID_Pagamento),
+    CONSTRAINT fk_UserSerie FOREIGN KEY (ID_Serie) REFERENCES Series (ID_Serie),
+    CONSTRAINT fk_UserPhoto FOREIGN KEY (ID_photo) REFERENCES Photos (ID_photo),
+    CONSTRAINT fk_UserXP FOREIGN KEY (ID_XP) REFERENCES userexperience (ID_XP)
 );
+
 SELECT ID_User, Nome, Nivel FROM Usuarios WHERE Email = 'fabegalo@gmail.com' and Senha = SHA1('galo1414');
+drop table userexperience;
 CREATE TABLE UserExperience (
     ID_XP int not null auto_increment,
     User_XP int not null,
@@ -23,9 +29,9 @@ CREATE TABLE UserExperience (
     Altura float,
     Bodyfat float,
     Ativo BOOL NOT NULL DEFAULT '1',
-    PRIMARY KEY (ID_XP, Serie)
+    PRIMARY KEY (ID_XP)
 );
-
+drop table pagamento;
 CREATE TABLE Pagamento (
     ID_Pagamento int not null auto_increment PRIMARY KEY,
     Cod_Fatura varchar(20),
@@ -34,20 +40,19 @@ CREATE TABLE Pagamento (
     Pagamento varchar(20),
     Ativo BOOL NOT NULL DEFAULT '1'
 );
-
+drop table series;
 CREATE TABLE Series (
     ID_Serie int not null auto_increment,
     ID_Exercicio int not null,
     Cod varchar(2),
     Num_rep int,
     Carga float,
-    ID_exercicio int,
     Tmp_Pausa time,
     Ativo BOOL NOT NULL DEFAULT '1',
-    PRIMARY KEY (ID_Serie, ID_exercicio),
+    PRIMARY KEY (ID_Serie),
     FOREIGN KEY (ID_Exercicio) REFERENCES Exercicios (ID_Exercicio)
 );
-
+drop table exercicios;
 CREATE TABLE Exercicios (
     ID_Exercicio int not null auto_increment PRIMARY KEY,
     Nome varchar(50),
@@ -56,13 +61,13 @@ CREATE TABLE Exercicios (
     Ativo BOOL NOT NULL DEFAULT '1',
     Dta_Registro date
 );
-
+drop table photos;
 CREATE TABLE Photos (
     ID_photo int not null auto_increment,
     Cod varchar(20),
-    Id_User int not null,
     Ativo BOOL NOT NULL DEFAULT '1',
-    PRIMARY KEY (Id_photo, Id_User)
+    PRIMARY KEY (Id_photo)
 );
+
 INSERT INTO Usuarios (ID_User, ID_Pag, Nome, Email, Senha, CPF, Telefone, Nivel, Ativo, Dta_Cadastro) VALUES ('NULL', 'NULL', 'Fabricio', 'fabegalo@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '08951558932', '123', '1', '1', NOW());
 INSERT INTO Usuarios (ID_User, Nome, Email, Senha, CPF, Telefone, Nivel, Ativo, Dta_Cadastro) VALUES ('NULL', 'Fabricio', 'fabegalo@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', '08951558932', '123', '1', '1', NOW());
