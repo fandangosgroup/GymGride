@@ -2,13 +2,39 @@
 
 namespace GymGride\View;
 
-use GymGride\Model\AdminModel;
 use GymGride\View\View;
 use GymGride\Controller\UserController;
+use GymGride\Controller\AdminController;
 
 class DashboardView extends View
 {
-    public function Dashboard(){
+    
+    public function Dashboard()
+    {
+        if (!isset($_SESSION)) session_start();
+        $nivel = $_SESSION['User_Nivel'];
+        
+        switch ($nivel) {
+            case 1:
+                $this->Usuario();
+                break;
+
+            case 2:
+                header("Location: /Personal");
+                break;
+
+            case 3:
+                header("Location: /Admin");
+                break;
+
+            default:
+                header("Location: /Invalido");
+                break;
+        }
+    }
+    
+    public function Usuario()
+    {
         
         $session = new UserController;
         $session->pagsave();
@@ -45,8 +71,23 @@ class DashboardView extends View
 
         //     print_r(session_cache_expire());
             
-            
         
-        
+    }
+
+    public function Personal()
+    {
+        $session = new UserController;
+        $session->pagsavePersonal();
+
+        $this->mostrar('Personal');
+    }
+
+    public function Admin()
+    {
+        $session = new UserController;
+        $session->pagsaveAdmin();
+
+        $teste = new AdminController;
+        $teste->AllUsers();
     }
 }

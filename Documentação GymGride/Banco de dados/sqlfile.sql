@@ -5,4 +5,9 @@ INSERT INTO Series (ID_Serie, Cod, Num_rep, Carga, ID_exercicio, Tmp_Pausa, Ativ
 SELECT * FROM usuarios;
 
 delete from usuarios
-where ID_User > 1
+where ID_User > 1;
+
+select * from Usuarios;
+
+SELECT ID_User, Nome, Nivel FROM Usuarios WHERE Email = 'fabegalo@gmail.com';
+INSERT INTO Usuarios (ID_User, Nome, Email, Senha, CPF, Telefone, Nivel, Ativo, Dta_Cadastro) VALUES ('NULL', 'Fabricio', 'fabegalo@gmail.com', '3fe78f72414a4e35f9e75b155ce35a23379dca78', '08951558932', '41 984155903', '1', '1', NOW());

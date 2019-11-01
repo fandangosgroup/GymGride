@@ -13,8 +13,37 @@ class UserController extends Controller
         // A sessão precisa ser iniciada em cada página diferente
       if (!isset($_SESSION)) session_start();
         
+      $nivel = 1;
       // Verifica se não há a variável da sessão que identifica o usuário
-      if (!isset($_SESSION['User_ID'])) {
+      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
+          // Destrói a sessão por segurança
+          session_destroy();
+          // Redireciona o visitante de volta pro login
+          header("Location: /Invalido"); exit;
+      }
+    }
+
+    function pagsavePersonal(){
+        // A sessão precisa ser iniciada em cada página diferente
+      if (!isset($_SESSION)) session_start();
+        
+      $nivel = 2;
+      // Verifica se não há a variável da sessão que identifica o usuário
+      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
+          // Destrói a sessão por segurança
+          session_destroy();
+          // Redireciona o visitante de volta pro login
+          header("Location: /Invalido"); exit;
+      }
+    }
+
+    function pagsaveAdmin(){
+        // A sessão precisa ser iniciada em cada página diferente
+      if (!isset($_SESSION)) session_start();
+        
+      $nivel = 3;
+      // Verifica se não há a variável da sessão que identifica o usuário
+      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
           // Destrói a sessão por segurança
           session_destroy();
           // Redireciona o visitante de volta pro login
@@ -29,7 +58,7 @@ class UserController extends Controller
         $User_photo = $resultado[0]['Photo'];
         $User_Nome = $resultado[0]['Nome'];
         $User_Nivel = $resultado[0]['Nivel'];
-        $Token = $resultado[0]['Token'];
+        //$Token = $resultado[0]['Token'];
         
         
         // Se a sessão não existir, inicia uma
@@ -39,7 +68,7 @@ class UserController extends Controller
         $Session->setValue('User_Nivel',$User_Nivel);
         //$Session->setValue('User_photo',$token);
         //$Session->setValue('User_Token',$token);
-        print_r($_SESSION);
+
     }
     
     public function login()
@@ -60,9 +89,11 @@ class UserController extends Controller
         if ($bool){
             $this->create_session($resultado);
         }
+       
         
         $userView = new UserView;
         $userView->Login();
+
     }
 
     public function cadastro()

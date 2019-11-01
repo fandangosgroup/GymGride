@@ -51,4 +51,6 @@ allow from all
 
     RewriteRule ^Invalido/?$ /?p=invalido&m [NC,L]
 
+    RewriteRule ^Personal?$ /?p=Personal&m [NC,L]
+
 </IfModule>

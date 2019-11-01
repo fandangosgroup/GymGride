@@ -1,4 +1,5 @@
 drop table Usuarios;
+
 CREATE TABLE Usuarios (
     ID_User int not null auto_increment PRIMARY KEY,
     ID_Pagamento int not null,
@@ -13,11 +14,7 @@ CREATE TABLE Usuarios (
     Token varchar(512),
     Nivel INT(1) UNSIGNED NOT NULL DEFAULT '1',
     Ativo BOOL NOT NULL DEFAULT '1',
-    Dta_Cadastro DATETIME NOT NULL,
-    CONSTRAINT fk_UserPag FOREIGN KEY (ID_Pagamento) REFERENCES pagamento (ID_Pagamento),
-    CONSTRAINT fk_UserSerie FOREIGN KEY (ID_Serie) REFERENCES Series (ID_Serie),
-    CONSTRAINT fk_UserPhoto FOREIGN KEY (ID_photo) REFERENCES Photos (ID_photo),
-    CONSTRAINT fk_UserXP FOREIGN KEY (ID_XP) REFERENCES userexperience (ID_XP)
+    Dta_Cadastro DATETIME NOT NULL
 );
 
 SELECT ID_User, Nome, Nivel FROM Usuarios WHERE Email = 'fabegalo@gmail.com' and Senha = SHA1('galo1414');
