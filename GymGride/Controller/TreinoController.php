@@ -3,10 +3,15 @@
     use GymGride\Controller\Controller;
     use GymGride\Model\Treino;
     use GymGride\View\TreinoView;
+    use GymGride\Controller\UserController;
 
     Class TreinoController extends Controller{
 
         public function Dados(){
+            
+            $session = new UserController;
+            $session->pagsave();
+
             $treino = new Treino;
             $array = $treino->getDados();
 
@@ -19,6 +24,7 @@
                 $this->ver($_SESSION);
             }else {
                 echo 'Treino Nao Encontrado';
+                $treino->setDefault();
             }
             
         }

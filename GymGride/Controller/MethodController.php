@@ -19,9 +19,9 @@ class MethodController extends Controller
 			$mth->cadastro();
         }
 
-        if ($m == 'index'){
+        if ($m == 'treino'){
             $mth = new TreinoController();
-            $mth->index();
+            $mth->Dados();
         }
 
         if ($m == 'Logout'){

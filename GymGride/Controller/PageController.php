@@ -21,8 +21,9 @@
 					$Dashboard->Dashboard();
 					break;
 				
-				case 'value':
-					# code...
+				case 'Admin':
+					$Dashboard = new DashboardView;
+					$Dashboard->Admin();
 					break;
 				
 				default:

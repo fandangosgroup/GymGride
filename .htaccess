@@ -53,4 +53,8 @@ allow from all
 
     RewriteRule ^Personal?$ /?p=Personal&m [NC,L]
 
+    RewriteRule ^Admin?$ /?p=Admin&m [NC,L]
+
+    RewriteRule ^Treino?$ /?m=treino&p [NC,L]
+
 </IfModule>
