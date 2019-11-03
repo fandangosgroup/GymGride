@@ -46,8 +46,7 @@ CREATE TABLE Series (
     Carga float,
     Tmp_Pausa time,
     Ativo BOOL NOT NULL DEFAULT '1',
-    PRIMARY KEY (ID_Serie),
-    FOREIGN KEY (ID_Exercicio) REFERENCES Exercicios (ID_Exercicio)
+    PRIMARY KEY (ID_Serie)
 );
 drop table exercicios;
 CREATE TABLE Exercicios (
