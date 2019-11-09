@@ -48,6 +48,56 @@ class Controller {
         return $html;
     }
 
+    public function clearHTML($data)
+    {
+        foreach ($data as $key => $value) {
+            $data[$key] = strip_tags ($value);
+        }
+        return $data;
+    }
+
+    function pagsave(){
+        // A sessão precisa ser iniciada em cada página diferente
+      if (!isset($_SESSION)) session_start();
+        
+      $nivel = 1;
+      // Verifica se não há a variável da sessão que identifica o usuário
+      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
+          // Destrói a sessão por segurança
+          session_destroy();
+          // Redireciona o visitante de volta pro login
+          header("Location: /Invalido"); exit;
+      }
+    }
+
+    function pagsavePersonal(){
+        // A sessão precisa ser iniciada em cada página diferente
+      if (!isset($_SESSION)) session_start();
+        
+      $nivel = 2;
+      // Verifica se não há a variável da sessão que identifica o usuário
+      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
+          // Destrói a sessão por segurança
+          session_destroy();
+          // Redireciona o visitante de volta pro login
+          header("Location: /Invalido"); exit;
+      }
+    }
+
+    function pagsaveAdmin(){
+        // A sessão precisa ser iniciada em cada página diferente
+      if (!isset($_SESSION)) session_start();
+        
+      $nivel = 3;
+      // Verifica se não há a variável da sessão que identifica o usuário
+      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
+          // Destrói a sessão por segurança
+          session_destroy();
+          // Redireciona o visitante de volta pro login
+          header("Location: /Invalido"); exit;
+      }
+    }
+
 
 
 }   

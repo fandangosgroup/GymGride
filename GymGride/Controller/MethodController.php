@@ -30,6 +30,12 @@ class MethodController extends Controller
             header("refresh: 0");
             header("Location: /");
         }
+
+        if ($m == 'Config'){
+            $this->pagsave();
+            $mth = new ConfigController();
+            $mth->ViewConfig();
+        }
     }   
 
 }

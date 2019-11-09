@@ -117,6 +117,7 @@ class ValidController extends Controller
             echo $g->getMessage();
             die();
         }
+
     }
 
     public function validaCPF($cpf)

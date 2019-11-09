@@ -1,0 +1,60 @@
+#conteudo {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/login/fundo.png");
+    background-size: cover;
+}
+
+.form {
+    box-shadow: 20px 20px 20px;
+    border: 15px solid rgb(245, 245, 245);
+    border-radius: 10%;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 250px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+}
+
+body {
+    margin: 0px;
+}
+
+.button input {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border: 2px solid rgb(3, 105, 238);
+    color: white;
+    background-color: rgb(3, 105, 238);
+    width: 120px;
+    margin: 0px 90px 0px;
+}
+
+.btn input[type="submit"]:hover {
+    background-color: rgb(4, 78, 175);
+    border: 2px solid rgb(4, 78, 175);
+    cursor: Pointer;
+}
+
+.inputs input:hover {
+    background-color: rgb(175, 173, 173);
+}
+
+.icone {
+    width: 180px;
+    margin: 0px 60px 0px;
+}
+
+.name {
+    width: 180px;
+    margin: 0px 90px 0px;
+}
+
+.foto {
+    width: 70px;
+    margin: 0px 110px 0px;
+
+}

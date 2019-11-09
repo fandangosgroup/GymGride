@@ -4,10 +4,15 @@ namespace GymGride\View;
 
 abstract class View 
 {
-    public function mostrar($name = 'index')
+    public function mostrar($name = 'index', $type = 'html', $dados = 0)
     {
-        $file2 = file_get_contents("GymGride/View/$name.html");
-        echo($file2);
+
+        if($dados){
+           require "GymGride/View/$name.$type";
+        }else {
+            $file2 = file_get_contents("GymGride/View/$name.$type");
+            echo($file2);
+        }
     }
 
     public function render($arquivo1, $arquivo2)

@@ -3,53 +3,10 @@
 namespace GymGride\Controller;
 use GymGride\Controller\Controller;
 use GymGride\Model\UserModel;
-use GymGride\Controller\TreinoController;
-use GymGride\View\DashboardView;
 use GymGride\View\UserView;
 
 class UserController extends Controller
 {
-    function pagsave(){
-        // A sessão precisa ser iniciada em cada página diferente
-      if (!isset($_SESSION)) session_start();
-        
-      $nivel = 1;
-      // Verifica se não há a variável da sessão que identifica o usuário
-      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
-          // Destrói a sessão por segurança
-          session_destroy();
-          // Redireciona o visitante de volta pro login
-          header("Location: /Invalido"); exit;
-      }
-    }
-
-    function pagsavePersonal(){
-        // A sessão precisa ser iniciada em cada página diferente
-      if (!isset($_SESSION)) session_start();
-        
-      $nivel = 2;
-      // Verifica se não há a variável da sessão que identifica o usuário
-      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
-          // Destrói a sessão por segurança
-          session_destroy();
-          // Redireciona o visitante de volta pro login
-          header("Location: /Invalido"); exit;
-      }
-    }
-
-    function pagsaveAdmin(){
-        // A sessão precisa ser iniciada em cada página diferente
-      if (!isset($_SESSION)) session_start();
-        
-      $nivel = 3;
-      // Verifica se não há a variável da sessão que identifica o usuário
-      if (!isset($_SESSION['User_ID']) || ($nivel != $_SESSION['User_Nivel'])) {
-          // Destrói a sessão por segurança
-          session_destroy();
-          // Redireciona o visitante de volta pro login
-          header("Location: /Invalido"); exit;
-      }
-    }
 
     function create_session($resultado){
     
@@ -58,6 +15,7 @@ class UserController extends Controller
         $User_photo = $resultado[0]['Photo'];
         $User_Nome = $resultado[0]['Nome'];
         $User_Nivel = $resultado[0]['Nivel'];
+        $User_email = $resultado[0]['Email'];
         //$Token = $resultado[0]['Token'];
         
         
@@ -66,6 +24,7 @@ class UserController extends Controller
         $Session->setValue('User_ID',$ID_User);
         $Session->setValue('User_Name',$User_Nome);
         $Session->setValue('User_Nivel',$User_Nivel);
+        $Session->setValue('User_Email',$User_email);
         //$Session->setValue('User_photo',$token);
         //$Session->setValue('User_Token',$token);
 
@@ -74,6 +33,7 @@ class UserController extends Controller
     public function login()
     {
         $post = $this->getPost();
+        $this->clearHTML($post);
         $email = $post['email'];
         $password = $post['password'];
 
@@ -99,6 +59,7 @@ class UserController extends Controller
     public function cadastro()
     {
         $post = $this->getPost();
+        $post = $this->clearHTML($post);
         $name = $post['name'];
         $email = $post['email'];
         $password = $post['password'];
@@ -110,7 +71,7 @@ class UserController extends Controller
         $Valida->Validar();
         
         $user = new userModel;
-        $header = $user->cadastrar($name, $email, $password, $passwordC, $CPF, $tell);
+        $header = $user->cadastrar($name, $email, $password, $CPF, $tell);
 
         if ($header == 1)
         {

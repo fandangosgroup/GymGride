@@ -2,7 +2,7 @@
 
 namespace GymGride\Controller;
 
-use GymGride\Controller\AdminController;
+//use GymGride\Controller\AdminController;
 use GymGride\View\DashboardView;
 use GymGride\View\IndexView;
 
@@ -30,9 +30,9 @@ class TestController
 
     function teste2() 
     {
-        $teste = new AdminController;
-        $teste->AllUsers();
-        
+        //$teste = new AdminController;
+        //$teste->AllUsers();
+        echo "Sem testes no momento!";
         // $t = new TreinoController();
         // $t->getDados();
 
