@@ -6,9 +6,20 @@ class ConfigModel extends Model
 {
     public function getData()
     {
-        $email = $_SESSION['User_Email'];
-        $stmt = $this->getAll('Usuarios', 'Telefone, CPF, Nivel, Senha', "Email = '$email' ");
+        $id = $_SESSION['User_ID'];
+        $stmt = $this->getAll('Usuarios', 'Nome, Email, Telefone, CPF, Nivel, Senha', "ID_User = '$id' ");
         $resultado = $this->getResult($stmt); 
         return $resultado;
+    }
+
+    public function setData($data)
+    {
+        $id = $_SESSION['User_ID'];
+        $where = "ID_User = $id";
+        
+        $this->update('Usuarios', 'Nome', "'$data[name]'", $where);
+        $this->update('Usuarios', 'Email', "'$data[email]'", $where);
+        $this->update('Usuarios', 'Telefone', "'$data[tell]'", $where);
+        //$this->update('Usuarios', 'Nome', $data['name'], $where);
     }
 }

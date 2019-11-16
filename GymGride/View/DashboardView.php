@@ -5,6 +5,7 @@ namespace GymGride\View;
 use GymGride\View\View;
 use GymGride\Controller\UserController;
 use GymGride\Controller\AdminController;
+use GymGride\Controller\SessionController;
 
 class DashboardView extends View
 {
@@ -14,6 +15,8 @@ class DashboardView extends View
         if (!isset($_SESSION)) session_start();
         $nivel = $_SESSION['User_Nivel'];
         
+        
+
         switch ($nivel) {
             case 1:
                 $this->Usuario();
@@ -35,6 +38,8 @@ class DashboardView extends View
     
     public function Usuario()
     {
+        $regenerate = new SessionController;
+        
         
         $session = new UserController;
         $session->pagsave();
@@ -76,6 +81,8 @@ class DashboardView extends View
 
     public function Personal()
     {
+        $regenerate = new SessionController;
+        
         $session = new UserController;
         $session->pagsavePersonal();
 
@@ -84,6 +91,8 @@ class DashboardView extends View
 
     public function Admin()
     {
+        $regenerate = new SessionController;
+        
         $session = new UserController;
         $session->pagsaveAdmin();
 

@@ -25,6 +25,8 @@ class UserController extends Controller
         $Session->setValue('User_Name',$User_Nome);
         $Session->setValue('User_Nivel',$User_Nivel);
         $Session->setValue('User_Email',$User_email);
+        $Session->setValue('Tempo',time());
+        $Session->setValue('Refresh',time());
         //$Session->setValue('User_photo',$token);
         //$Session->setValue('User_Token',$token);
 

@@ -49,7 +49,7 @@ allow from all
 
     RewriteRule ^Logout/?$ /?m=Logout&p [NC,L]
 
-    RewriteRule ^Invalido/?$ /?p=invalido&m [NC,L]
+    RewriteRule ^Invalido/?$ /?p=Invalido&m [NC,L]
 
     RewriteRule ^Personal?$ /?p=Personal&m [NC,L]
 
@@ -58,5 +58,7 @@ allow from all
     RewriteRule ^Treino?$ /?m=treino&p [NC,L]
 
     RewriteRule ^Config?$ /?m=Config&p [NC,L]
+
+    RewriteRule ^AtualizaDados?$ /?m=update&p [NC,L]
 
 </IfModule>

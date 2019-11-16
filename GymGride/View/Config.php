@@ -21,19 +21,19 @@
                 </div>
             <form action="AtualizaDados" method="POST">
                 Nome:<br>
-                <input type="text" name="name" value="<?php echo"$_SESSION[User_Name]"; ?>">
+                <input type="text" name="name" value="<?php echo"$dados[User_Name]"; ?>">
                 <br>
                 <br>
                 Email:<br>
-                <input type="email" name="email" value="<?php echo"$_SESSION[User_Email]"; ?>">
+                <input type="email" name="email" value="<?php echo"$dados[User_Email]"; ?>">
                 <br>
                 <br>
-                Senha:<br>
-                <input type="text" name="password" value="<?php echo"$dados[User_pass]"; ?>">
+                <!--Senha:<br>
+                <input type="text" readonly name="password" value="<?php echo"$dados[User_pass]"; ?>">
                 <br>
-                <br>
+                <br>-->
                 Telefone:<br>
-                <input type="text" name="tell" value="<?php echo"$dados[User_tel]"; ?>">
+                <input type="text" name="tell" value="<?php echo"$dados[User_tell]"; ?>">
                 <br>
                 <br>
                 CPF:<br>
@@ -41,6 +41,10 @@
                 <br>
                 <br>
                 <input type="submit" value="Alterar">
+                <br>
+                <br>
+                <a href="Dashboard">Voltar</a>
+                
             </form>
             </div>
         </div>

@@ -26,6 +26,10 @@
 					$Dashboard->Admin();
 					break;
 				
+				//case 'Invalido':
+					//session_start();
+					//$this->ver($_SESSION);
+
 				default:
 					if (empty($p))
 					{

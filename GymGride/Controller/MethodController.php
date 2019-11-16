@@ -36,6 +36,13 @@ class MethodController extends Controller
             $mth = new ConfigController();
             $mth->ViewConfig();
         }
+
+        if ($m == 'update'){
+            $this->pagsave();
+            $mth = new ConfigController();
+            $mth->UpdateConfig();
+            header("Location: /Config");
+        }
     }   
 
 }

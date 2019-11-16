@@ -4,11 +4,14 @@
     use GymGride\Model\Treino;
     use GymGride\View\TreinoView;
     use GymGride\Controller\UserController;
+    use GymGride\Controller\SessionController;
 
     Class TreinoController extends Controller{
 
         public function Dados(){
             
+            $regenerate = new SessionController;
+
             $session = new UserController;
             $session->pagsave();
 
