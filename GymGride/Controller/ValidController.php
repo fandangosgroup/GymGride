@@ -38,13 +38,19 @@ class ValidController extends Controller
         try{
             if(!isset($passwordC)){
                 if (empty($email) || (empty($password))){
-                    return header("Location: /?alert=2") && die();
+                    $array[0] = 1;
+                    $array[1] = 2;
+
+                    return $array;
                     throw new \Exception('ERROR!: Dados Vazios!!<br />');
                 }
             }else{
                 if(isset($passwordC)){
                     if (empty($name) || (empty($email) || (empty($password)))){
-                        return header("Location: /?alert=2") && die();
+                        $array[0] = 1;
+                        $array[1] = 2;
+
+                        return $array;
                         throw new \Exception('ERROR!: Dados Vazios!!<br />');
                     }
                 }
@@ -57,7 +63,10 @@ class ValidController extends Controller
         try{
             if(!empty($passwordC)){
                 if ($password != $passwordC){
-                    return header("Location: /?alert=3") && die();
+                    $array[0] = 1;
+                    $array[1] = 3;
+
+                    return $array;
                     throw new \Exception('As senhas não se corespodem!<br />');
                 }
             }else{
@@ -70,7 +79,10 @@ class ValidController extends Controller
         
         try{
             if(strstr($name, " ") || (strstr($email, " ") || (strstr($password, " ")))){
-                return header("Location: /?alert=4") && die();
+                $array[0] = 1;
+                $array[1] = 4;
+
+                return $array;
                 throw new \Exception('nome , email e senha não podem conter espaço!<br />');
             }else{
             
@@ -82,7 +94,10 @@ class ValidController extends Controller
     
         try{
             if(is_numeric($name)){
-                return header("Location: /?alert=5") && die();
+                $array[0] = 1;
+                $array[1] = 5;
+
+                return $array;
                 throw new \Exception('nome tem que ser do tipo caractere!<br />');
                 
             }else{
@@ -95,7 +110,10 @@ class ValidController extends Controller
     
         try{
             if(strlen($name) > 10){
-                return header("Location: /?alert=6") && die();
+                $array[0] = 1;
+                $array[1] = 6;
+
+                return $array;
                 throw new \Exception('nome não pode ter comprimento maior que 10 caracteres!<br />');
             }else{
             
@@ -107,7 +125,10 @@ class ValidController extends Controller
     
         try{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                return header("Location: /?alert=7") && die();
+                $array[0] = 1;
+                $array[1] = 7;
+
+                return $array;
                 throw new \Exception('Email não é valido!<br />');
             }else{
             
@@ -119,7 +140,10 @@ class ValidController extends Controller
     
         try{
             if(strlen($password) > 15){
-                return header("Location: /?alert=8") && die();
+                $array[0] = 1;
+                $array[1] = 8;
+
+                return $array;
                 throw new \Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
             }else{
             
@@ -139,13 +163,19 @@ class ValidController extends Controller
         try{
             if(!isset($passwordC)){
                 if (empty($email) || (empty($password))){
-                    return header("Location: /?alert=2#paralogin") && die();
+                    $array[0] = 1;
+                    $array[1] = 2;
+
+                    return $array;
                     throw new \Exception('ERROR!: Dados Vazios!!<br />');
                 }
             }else{
                 if(isset($passwordC)){
                     if (empty($name) || (empty($email) || (empty($password)))){
-                        return header("Location: /?alert=2#paralogin") && die();
+                        $array[0] = 1;
+                        $array[1] = 2;
+
+                        return $array;
                         throw new \Exception('ERROR!: Dados Vazios!!<br />');
                     }
                 }
@@ -157,7 +187,10 @@ class ValidController extends Controller
         
         try{
             if(strstr($name, " ") || (strstr($email, " ") || (strstr($password, " ")))){
-                return header("Location: /?alert=4#paralogin") && die();
+                $array[0] = 1;
+                $array[1] = 4;
+
+                return $array;
                 throw new \Exception('nome , email e senha não podem conter espaço!<br />');
             }else{
             
@@ -169,7 +202,10 @@ class ValidController extends Controller
     
         try{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                return header("Location: /?alert=7#paralogin") && die();
+                $array[0] = 1;
+                $array[1] = 7;
+
+                return $array;
                 throw new \Exception('Email não é valido!<br />');
             }else{
             
@@ -181,7 +217,10 @@ class ValidController extends Controller
     
         try{
             if(strlen($password) > 15){
-                return header("Location: /?alert=8#paralogin") && die();
+                $array[0] = 1;
+                $array[1] = 8;
+
+                return $array;
                 throw new \Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
             }else{
             

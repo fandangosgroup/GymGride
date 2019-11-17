@@ -41,7 +41,13 @@ class UserController extends Controller
         $password = $post['password'];
 
         $Valida = new ValidController($name = "banana", $email, $password, $passwordC = "123", $CPF = "502.870.467-88");
-        $Valida->validalogin();
+        $array = $Valida->validalogin();
+
+        if($array[0] == 1){
+            $num = $array[1];
+            header("Location: /?alert=$num#paralogin");
+            die();
+        }
 
         $user = new UserModel;
         $resultado = $user->login($email, $password);
@@ -75,7 +81,13 @@ class UserController extends Controller
         $tell = $post['tell'];
 
         $Valida = new ValidController($name, $email, $password, $passwordC, $CPF);
-        $Valida->Validar();
+        $array = $Valida->Validar();
+
+        if($array[0] == 1){
+            $num = $array[1];
+            header("Location: /?alert=$num");
+            die();
+        }
         
         $user = new userModel;
         $header = $user->cadastrar($name, $email, $password, $CPF, $tell);
