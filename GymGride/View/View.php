@@ -39,6 +39,17 @@ abstract class View
         $x = 0;
         $z = 0;
         $h = 0;
+        //$count = 0;
+
+        // foreach ($values as $key => $value) {
+        //     $count = count($values, 1);
+        //     print_r($count);
+        //     echo "<pre>";
+        //     print_r($values);
+        //     echo "<pre>";
+        // }
+
+        //print_r($count);
 
         if(empty($file1)){
             while($h < $num){

@@ -52,7 +52,7 @@ class UserController extends Controller
             $this->create_session($resultado);
         }
        
-        
+        $user->getNivel();
         $userView = new UserView;
         $userView->Login();
 

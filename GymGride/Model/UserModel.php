@@ -93,7 +93,7 @@ class UserModel extends Model
     {
         $Session = new SessionController();
         $token = $Session->getValue('User_Token');
-        $Nivel = $Session->getValue('UsuarioNivel');
+        $Nivel = $Session->getValue('User_Nivel');
         
         $stmt = $this->getAll('Usuarios', 'Nivel', "Token = '$token' and Nivel = '$Nivel'");
         //print_r($stmt);
@@ -105,6 +105,7 @@ class UserModel extends Model
             return true;
         }else{
             echo 'Nivel Incompativel';
+            die("Nivel Incompativel!!!");
             return false;
         }
     }

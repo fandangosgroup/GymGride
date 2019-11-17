@@ -19,7 +19,7 @@ class SessionController extends Controller{
                 $_SESSION['Refresh'] = time();
             }
     
-            if ($tempo < time() - 300) {
+            if ($tempo < time() - 3600) {
                 $this->logout();
             }
         }

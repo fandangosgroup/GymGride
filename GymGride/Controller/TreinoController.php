@@ -20,11 +20,13 @@
 
             if ($array != false){
                 $v = new TreinoView();
-                $file = $v->render('item', 'list');
-                $html = $v->replace($file, $array);
+                //$file = $v->render('item', 'list');
+                //$html = $v->replace($file, $array);
+
+                $v->mostrar('list', 'php', $array);
             
-                print_r($html);
-                $this->ver($_SESSION);
+                //print_r($html);
+
             }else {
                 echo 'Treino Nao Encontrado';
                 $treino->setDefault();
