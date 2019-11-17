@@ -47,6 +47,7 @@ class UserModel extends Model
     
         if($res){
             $ok = 0;
+            header("Location: /?alert=11");
             echo 'Erro!! Usuario ja cadastrado!';
         }
         

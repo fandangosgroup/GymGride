@@ -118,5 +118,16 @@ class IndexView extends View
             echo '</body>';
             echo '</html>';
         }
+
+        if($a == 11){
+            echo '<!DOCTYPE html>';
+            echo '<html xmlns="http://www.w3.org/1999/xhtml">';
+            echo '<head>';
+            echo '</head>';
+            echo '<body>';
+            echo '<div class="al alert alert-danger"><p><strong>Alerta:</strong> Usuario ja cadastrado!!.</p></div>';
+            echo '</body>';
+            echo '</html>';
+        }
     }
 }
