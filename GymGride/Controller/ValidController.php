@@ -20,6 +20,7 @@ class ValidController extends Controller
         {
             $this->CPF = $CPF;
         }else {
+            header("Location: /?alert=10");
             die('CPF Invalido!');
         }
 

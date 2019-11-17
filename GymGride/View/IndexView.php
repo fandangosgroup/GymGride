@@ -96,5 +96,27 @@ class IndexView extends View
             echo '</body>';
             echo '</html>';
         }
+
+        if($a == 9){
+            echo '<!DOCTYPE html>';
+            echo '<html xmlns="http://www.w3.org/1999/xhtml">';
+            echo '<head>';
+            echo '</head>';
+            echo '<body>';
+            echo '<div class="al alert alert-danger"><p><strong>Alerta:</strong> Usuario Invalido!!.</p></div>';
+            echo '</body>';
+            echo '</html>';
+        }
+
+        if($a == 10){
+            echo '<!DOCTYPE html>';
+            echo '<html xmlns="http://www.w3.org/1999/xhtml">';
+            echo '<head>';
+            echo '</head>';
+            echo '<body>';
+            echo '<div class="al alert alert-danger"><p><strong>Alerta:</strong> CPF Invalido!!.</p></div>';
+            echo '</body>';
+            echo '</html>';
+        }
     }
 }

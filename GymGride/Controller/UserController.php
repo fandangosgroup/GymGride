@@ -55,6 +55,7 @@ class UserController extends Controller
         if ($resultado != false){
             $user->setToken($resultado);
         }else {
+            header("Location: /?alert=9#paralogin");
             die("Usuario Invalido!!!");
         }
         
