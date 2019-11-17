@@ -5,6 +5,7 @@ use GymGride\Model\Model;
 
 class AdminModel extends Model 
 {
+    // Pega todos os usuarios do banco e retorna em um array o resultado
     public function getAllUsers()
     {
         $stmt = $this->getAll('Usuarios', '*');

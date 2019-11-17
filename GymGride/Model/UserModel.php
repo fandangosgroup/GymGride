@@ -7,6 +7,7 @@ use GymGride\Model\Model;
 
 class UserModel extends Model
 {
+    //Busca o login no banco e retorna os resultados
     public function login($email, $senha)
     {
         $stmt = $this->getAll('Usuarios', 'ID_User, Nome, Nivel, Email', "Email = '$email' and Senha = SHA1('$senha')");
@@ -21,6 +22,7 @@ class UserModel extends Model
         }
     }
     
+    //Busca o cadastro no banco, se ele não existir ele cria o cadastro
     public function cadastrar($name, $email, $password, $CPF, $tell)
     {
         $stmt = $this->getAll('Usuarios', 'ID_User, Nome, Nivel', "Email = '$email'");
@@ -51,6 +53,7 @@ class UserModel extends Model
         return $ok;
     }
 
+    //Cria o Token do usuario e insere no banco
     public function setToken($dados)
     {
         $token = "";
@@ -72,6 +75,7 @@ class UserModel extends Model
         //print_r($token);
     }
 
+    //Valida se token da session é a mesma do banco de dados
     public function getToken()                       
     {
         $Session = new SessionController();
@@ -89,6 +93,7 @@ class UserModel extends Model
         }
     }
 
+    //Valida se nivel da session é igual ao do banco
     public function getNivel()
     {
         $Session = new SessionController();

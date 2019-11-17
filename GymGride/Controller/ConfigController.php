@@ -6,6 +6,7 @@ use GymGride\View\ConfigView;
 
 class ConfigController extends Controller 
 {
+    //Pega todas as informaçoes do usuario e imprime na tela
     public function ViewConfig()
     {
         $regenerate = new SessionController;
@@ -19,6 +20,7 @@ class ConfigController extends Controller
         $ViewConfig->MostrarConfig($data);
     }
 
+    //Atualiza as informaçoes do usuario.
     public function UpdateConfig()
     {
         $regenerate = new SessionController;

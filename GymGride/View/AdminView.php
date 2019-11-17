@@ -5,6 +5,7 @@ use GymGride\View\View;
 
 class AdminView extends View 
 {
+    //Renderiza os usuarios na tela e imprimi
     public function Adminrender($dados, $num)
     {
         $file1 = 'item';

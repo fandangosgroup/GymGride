@@ -6,6 +6,8 @@ namespace GymGride\Controller;
 use GymGride\View\DashboardView;
 use GymGride\View\IndexView;
 
+//TestController apenas serve para testar codigos....
+
 class TestController 
 {
     function teste()

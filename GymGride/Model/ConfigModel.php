@@ -4,6 +4,7 @@ use GymGride\Model\Model;
 
 class ConfigModel extends Model 
 {
+    //Busca os dados do usuario e retorna
     public function getData()
     {
         $id = $_SESSION['User_ID'];
@@ -12,6 +13,7 @@ class ConfigModel extends Model
         return $resultado;
     }
 
+    //Atualiza os dados do usuario
     public function setData($data)
     {
         $id = $_SESSION['User_ID'];

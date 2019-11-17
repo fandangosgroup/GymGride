@@ -8,6 +8,8 @@
 
     Class TreinoController extends Controller{
 
+        //Pega os treino encontrados no banco e imprimi na tela o resultado, se não existir ele tenta setar
+        //uma serie default
         public function Dados(){
             
             $regenerate = new SessionController;

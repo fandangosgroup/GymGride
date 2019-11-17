@@ -5,8 +5,9 @@
 	use GymGride\View\IndexView;
 	use GymGride\View\DashboardView;
 
-	Class PageController extends Controller{
+Class PageController extends Controller{
 
+	// Função que verifica as paginas a serem mostradas
 		public function view($p)
 		{
 		

@@ -18,12 +18,14 @@ class Controller {
         die();
     }
 
+    //Mostra um arquivo html pelo get
     public function view($p)
     {
 
         $view = new IndexView;
         $view->mostrar($p);
     }
+
     //Captura todos os posts, tornar a variavel $allPost Global.
     public function getPost()
     {
@@ -48,6 +50,7 @@ class Controller {
         return $html;
     }
 
+    //Limpa codigos html e php do Post
     public function clearHTML($data)
     {
         foreach ($data as $key => $value) {
@@ -56,6 +59,7 @@ class Controller {
         return $data;
     }
 
+    //Verifica se usuario tem permissão pra abrir a pagina
     function pagsave(){
         // A sessão precisa ser iniciada em cada página diferente
       if (!isset($_SESSION)) session_start();
@@ -70,6 +74,7 @@ class Controller {
       }
     }
 
+    //Verifica se personal tem permissão pra abrir a pagina
     function pagsavePersonal(){
         // A sessão precisa ser iniciada em cada página diferente
       if (!isset($_SESSION)) session_start();
@@ -84,6 +89,7 @@ class Controller {
       }
     }
 
+    //Verifica se Admin tem permissão pra abrir a pagina
     function pagsaveAdmin(){
         // A sessão precisa ser iniciada em cada página diferente
       if (!isset($_SESSION)) session_start();

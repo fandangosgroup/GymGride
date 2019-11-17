@@ -19,6 +19,7 @@ class Model {
         die();
     }
 
+    //Faz a conexão com o banco de dados
     public function dbConnect()
     {
         try {
@@ -40,12 +41,14 @@ class Model {
         return $num;
     }
 
+    //Pega o resultado da consulta e retorna em um array
     public function getResult($stmt)
     {
         $resultado = $stmt->fetchAll();
         return $resultado;
     }
 
+    //Realiza a Query No banco
     public function dbQuery($sqlQuery)
     {
         $con = $this->dbConnect();
@@ -63,6 +66,7 @@ class Model {
         return $stmt;
     }
 
+    //Fecha conexão com o banco
     public function dbClose($con)
     {
         unset($con);
@@ -70,7 +74,8 @@ class Model {
             echo "deu ruim na model, chama a microsft! a coneção não fechou nao";
         }
     }
-        // ESPERO MESMO Q VC SAIBA O Q TA FAZENDO!!
+
+    //Seleciona resultados do banco de dados , por padrao ele pega todos os resultados
     public function getAll($table, $column, $where = 0)
     {
         $sqlQuery = "SELECT {$column} FROM {$table}";
@@ -82,6 +87,7 @@ class Model {
         return $stmt;
     }
 
+    //Deleta uma Linha do banco de dados
     public function deletRow($table, $where)
     {
         if (!empty($where)){
@@ -95,6 +101,7 @@ class Model {
         return $stmt;
     }
 
+    //Realiza o update de um valor no banco
     public function update($table, $column, $value, $where)
     {
         if (empty($where)){
@@ -110,6 +117,7 @@ class Model {
         return $stmt;
     }
 
+    //Insere valores no banco
     public function dbInsert($table, $columns, $values)
     {
         $sqlQuery = "INSERT INTO {$table} (";

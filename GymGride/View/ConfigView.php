@@ -4,6 +4,7 @@ use GymGride\View\View;
 
 class ConfigView extends View
 {
+    //Recebe os dados e imprimi na tela
     public function MostrarConfig($data)
     {
         $dados['User_Email'] = $data[0]['Email'];

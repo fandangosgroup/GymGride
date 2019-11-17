@@ -10,6 +10,7 @@ class ValidController extends Controller
     private $passwordC;
     private $CPF;
 
+    //Construct recebe os campos e valida CPF.
     public function __construct($name, $email, $password, $passwordC, $CPF)
     {
         $this->name = $name;
@@ -26,6 +27,7 @@ class ValidController extends Controller
         $this->passwordC = $passwordC;
     }
 
+    //Valida os campos
     public function Validar()
     {
         $name = $this->name;
@@ -120,6 +122,7 @@ class ValidController extends Controller
 
     }
 
+    //Valida CPF
     public function validaCPF($cpf)
     {
 

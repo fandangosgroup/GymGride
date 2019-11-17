@@ -5,6 +5,7 @@ use GymGride\Controller\Controller;
 
 class MethodController extends Controller
 {
+    //Função que verifica os metodos a serem executados.
     public function MethodController($m)
     {
         if ($m == 'login')

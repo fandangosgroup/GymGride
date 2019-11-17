@@ -7,6 +7,7 @@ use GymGride\View\AdminView;
 
 class AdminController extends Controller 
 {
+    //Função que pega todos os usuarios do banco e renderiza na tela.
     public function AllUsers() 
     {
         $adminModel = new AdminModel;

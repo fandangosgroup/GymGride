@@ -4,6 +4,7 @@ namespace GymGride\View;
 
 abstract class View 
 {
+    //Mostra um arquivo HTML ou PHP contendo ou não dados, por padrão ela abre o index
     public function mostrar($name = 'index', $type = 'html', $dados = 0)
     {
 
@@ -15,6 +16,7 @@ abstract class View
         }
     }
 
+    //Seleciona 2 arquivos da View e Content e retorna um array com os 2 files
     public function render($arquivo1, $arquivo2)
     {
         if(!empty($arquivo1)){
@@ -31,6 +33,7 @@ abstract class View
         return $array;
     }
 
+    //Recebe 2 Files e um array do banco, e retorna um HTML com os dados.
     public function replace($files, $values, $num = 1)
     {
         $file1 = $files[0];

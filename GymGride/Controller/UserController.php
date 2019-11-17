@@ -7,7 +7,7 @@ use GymGride\View\UserView;
 
 class UserController extends Controller
 {
-
+    //Cria uma session com os dados do banco
     function create_session($resultado){
     
         // Salva os dados encontrados na sessão
@@ -32,6 +32,7 @@ class UserController extends Controller
 
     }
     
+    //Limpa os posts, verifica e faz o login, valida o token e nivel e cria a session.
     public function login()
     {
         $post = $this->getPost();
@@ -58,6 +59,7 @@ class UserController extends Controller
 
     }
 
+    //Limpa os posts, valida os campos, verifica e faz o cadastro.
     public function cadastro()
     {
         $post = $this->getPost();

@@ -5,6 +5,7 @@
     
     Class Treino extends Model{
 
+        //Pega todas as series do banco
         public function getDados()
         {   
             //$this->ver($_SESSION);
@@ -23,6 +24,7 @@
             
         }
 
+        //Coloca uma serie padrão para o usuario
         public function setDefault()
         {
             $ID = $_SESSION['User_ID'];

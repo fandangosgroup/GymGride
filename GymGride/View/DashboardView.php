@@ -10,6 +10,7 @@ use GymGride\Controller\SessionController;
 class DashboardView extends View
 {
     
+    // Inicia a sessão e verifica se é usuario, personal ou Admin
     public function Dashboard()
     {
         if (!isset($_SESSION)) session_start();
@@ -36,6 +37,7 @@ class DashboardView extends View
         }
     }
     
+    //Imprimi os dados do usuario na tela principal
     public function Usuario()
     {
         $regenerate = new SessionController;
@@ -79,6 +81,7 @@ class DashboardView extends View
         
     }
 
+    //Mostra a tela do Personal
     public function Personal()
     {
         $regenerate = new SessionController;
@@ -89,6 +92,7 @@ class DashboardView extends View
         $this->mostrar('Personal');
     }
 
+    //Mostra a tela de admin com todos os usuarios
     public function Admin()
     {
         $regenerate = new SessionController;
