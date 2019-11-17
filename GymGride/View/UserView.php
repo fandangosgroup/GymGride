@@ -11,7 +11,7 @@ class UserView extends View {
 
     //Mostra tela apos Cadastro
     public function Cadastro(){
-        $this->mostrar('csucesso');
+        header("Location: /?alert=1#paralogin");
     }
    
 }

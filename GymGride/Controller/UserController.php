@@ -40,6 +40,9 @@ class UserController extends Controller
         $email = $post['email'];
         $password = $post['password'];
 
+        $Valida = new ValidController($name = "banana", $email, $password, $passwordC = "123", $CPF = "502.870.467-88");
+        $Valida->validalogin();
+
         $user = new UserModel;
         $resultado = $user->login($email, $password);
         

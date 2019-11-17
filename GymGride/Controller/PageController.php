@@ -35,7 +35,15 @@ Class PageController extends Controller{
 					if (empty($p))
 					{
 						$i = new IndexView();
-						$i->mostrar();
+					
+						if(!isset($_GET['alert']) || !isset($_GET['alert'])){
+							$_GET['alert'] = '0';
+							$_GET['alert'] = '0';
+						}
+
+						$a = $_GET['alert'];
+						
+						$i->mostrarindex($a);
 					}else
 					{
 						$i = new IndexView();

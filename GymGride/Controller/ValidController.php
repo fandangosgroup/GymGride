@@ -38,11 +38,13 @@ class ValidController extends Controller
         try{
             if(!isset($passwordC)){
                 if (empty($email) || (empty($password))){
+                    return header("Location: /?alert=2") && die();
                     throw new \Exception('ERROR!: Dados Vazios!!<br />');
                 }
             }else{
                 if(isset($passwordC)){
                     if (empty($name) || (empty($email) || (empty($password)))){
+                        return header("Location: /?alert=2") && die();
                         throw new \Exception('ERROR!: Dados Vazios!!<br />');
                     }
                 }
@@ -55,6 +57,7 @@ class ValidController extends Controller
         try{
             if(!empty($passwordC)){
                 if ($password != $passwordC){
+                    return header("Location: /?alert=3") && die();
                     throw new \Exception('As senhas não se corespodem!<br />');
                 }
             }else{
@@ -67,6 +70,7 @@ class ValidController extends Controller
         
         try{
             if(strstr($name, " ") || (strstr($email, " ") || (strstr($password, " ")))){
+                return header("Location: /?alert=4") && die();
                 throw new \Exception('nome , email e senha não podem conter espaço!<br />');
             }else{
             
@@ -78,7 +82,9 @@ class ValidController extends Controller
     
         try{
             if(is_numeric($name)){
+                return header("Location: /?alert=5") && die();
                 throw new \Exception('nome tem que ser do tipo caractere!<br />');
+                
             }else{
                 
             }
@@ -89,6 +95,7 @@ class ValidController extends Controller
     
         try{
             if(strlen($name) > 10){
+                return header("Location: /?alert=6") && die();
                 throw new \Exception('nome não pode ter comprimento maior que 10 caracteres!<br />');
             }else{
             
@@ -100,6 +107,7 @@ class ValidController extends Controller
     
         try{
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                return header("Location: /?alert=7") && die();
                 throw new \Exception('Email não é valido!<br />');
             }else{
             
@@ -111,6 +119,69 @@ class ValidController extends Controller
     
         try{
             if(strlen($password) > 15){
+                return header("Location: /?alert=8") && die();
+                throw new \Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
+            }else{
+            
+            }
+        }catch(\Exception $g){
+            echo $g->getMessage();
+            die();
+        }
+
+    }
+
+    public function validaLogin(){
+        $email = $this->email;
+        $password = $this->password;
+        $name = $this->name;
+     
+        try{
+            if(!isset($passwordC)){
+                if (empty($email) || (empty($password))){
+                    return header("Location: /?alert=2#paralogin") && die();
+                    throw new \Exception('ERROR!: Dados Vazios!!<br />');
+                }
+            }else{
+                if(isset($passwordC)){
+                    if (empty($name) || (empty($email) || (empty($password)))){
+                        return header("Location: /?alert=2#paralogin") && die();
+                        throw new \Exception('ERROR!: Dados Vazios!!<br />');
+                    }
+                }
+            }
+        }catch(\Exception $g){
+            echo $g->getMessage();
+            die();
+        }
+        
+        try{
+            if(strstr($name, " ") || (strstr($email, " ") || (strstr($password, " ")))){
+                return header("Location: /?alert=4#paralogin") && die();
+                throw new \Exception('nome , email e senha não podem conter espaço!<br />');
+            }else{
+            
+            }
+        }catch(\Exception $g){
+            echo $g->getMessage();
+            die();
+        }
+    
+        try{
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                return header("Location: /?alert=7#paralogin") && die();
+                throw new \Exception('Email não é valido!<br />');
+            }else{
+            
+            }
+        }catch(\Exception $g){
+            echo $g->getMessage();
+            die();
+        }
+    
+        try{
+            if(strlen($password) > 15){
+                return header("Location: /?alert=8#paralogin") && die();
                 throw new \Exception('Senha não pode ter comprimento maior que 15 caracteres!<br />');
             }else{
             

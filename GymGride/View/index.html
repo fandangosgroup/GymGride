@@ -1,38 +1,86 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>GYM Gride</title>
-        <meta name="viewport" content="width=device-widht, initial-scale=1">
-        <link rel="icon" href="images/favicon2.ico" />
-        <!--CSS-->
-
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="./css/index.css">
-
-    </head> 
-    <body>
-        <div id="cabeçalho">
+<head>
+    <meta charset="UTF-8" />
+    <title>Gym Gride</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" type="text/css" href="./css/estilo.css" />
+ 
+  </head>
+  <body>
+    <div class="container" >
+      <a class="links" id="paracadastro"></a>
+      <a class="links" id="paralogin"></a>
+       
+      <div class="content">      
+       
+        <div id="login">
+          <form method="POST" action="Autenticar"> 
+            <h1>Login</h1> 
+            <p> 
+              <label for="nome_login">Seu e-mail</label>
+              <input id="nome_login" name="email" required="required" type="text" placeholder="ex. jhon@email.com"/>
+            </p>
+             
+            <p> 
+              <label for="email_login">Sua senha</label>
+              <input id="email_login" name="password" required="required" type="password" placeholder="ex. senha" /> 
+            </p>
+             
+            <!--<p> 
+              <input type="checkbox" name="manterlogado" id="manterlogado" value="" /> 
+              <label for="manterlogado">Manter-me logado</label>
+            </p>-->
+             
+            <p> 
+              <input type="submit" value="Logar" /> 
+            </p>
+             
+            <p class="link">
+              Ainda não tem conta?
+              <a href="#paracadastro">Cadastre-se</a>
+            </p>
+          </form>
+        </div>
+       
+        <div id="cadastro">
+          <form method="POST" action="NovoCadastro"> 
+            <h1>Cadastro</h1> 
+           
+              <label for="nome_cad">Seu nome</label>
+              <input id="nome_cad" name="name" required="required" type="text" placeholder="ex. nome" />
             
+           
+              <label for="email_cad">Seu e-mail</label>
+              <input id="email_cad" name="email" required="required" type="email" placeholder="ex. jhon@email.com"/> 
+        
+            
+              <label for="senha_cad">Seu CPF</label>
+              <input id="senha_cad" name="CPF" required="required" type="text" placeholder="ex. 089.315.290-32"/>
+         
+          
+              <label for="senha_cad">Seu Telefone</label>
+              <input id="senha_cad" name="tell" required="required" type="text" placeholder="ex. 41 9 8415-5803"/>
+            
+           
+              <label for="senha_cad">Sua senha</label>
+              <input id="senha_cad" name="password" required="required" type="password" placeholder="ex. 1234"/>
+              
+              <br><br>
+              <hr width="100%"> <br>
+           
+              <label for="senha_cad">Confirme a senha</label>
+              <input id="senha_cad" name="passwordC" required="required" type="password" placeholder="ex. 1234"/>
+           
+              <br><br>
+          
+              <input type="submit" value="Cadastrar"/> 
+             
+            <p class="link">  
+              Já tem conta?
+              <a href="#paralogin"> Ir para Login </a>
+            </p>
+          </form>
         </div>
-        <div id="div_centro">
-            <div id="linha"></div>
-            <br>
-            <br>
-            <center><img src="images/index/logo.png" class="img-rounded"></center>
-            <br>
-            <br>
-            <br>
-            <center><a href="Logar" class="btn btn-succses" style="font-size: 20px; height: 40%; width: 200px;color: black; background-color: #1E90FF;">Login</a></center>
-            <br>
-            <br>
-            <center><a href="Cadastrar" class="btn btn-succses" style="font-size: 20px; height: 40%; width: 200px;color: black; background-color: #1E90FF;">Cadastrar</a></center>    
-        </div>
-
-        <footer>
-            <script src="js/jquery.js" type="text/javascript"></script>
-            <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        </footer>
-    </body>
-</html>
+      </div>
+    </div>  
+  </body>
+  </html>

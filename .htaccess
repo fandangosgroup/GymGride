@@ -37,11 +37,7 @@ allow from all
 <IfModule mod_rewrite.c>
     RewriteEngine On 
 
-    RewriteRule ^Logar/?$ /?p=Login&m [NC,L]
-
     RewriteRule ^Autenticar/?$ /?m=login&p [NC,L]
-    
-    RewriteRule ^Cadastrar/?$ /?p=Cadastro&m [NC,L]
     
     RewriteRule ^NovoCadastro/?$ /?m=cadastro&p [NC,L]
 
