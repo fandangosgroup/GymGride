@@ -57,4 +57,7 @@ allow from all
 
     RewriteRule ^AtualizaDados?$ /?m=update&p [NC,L]
 
+    RewriteRule ^CadastroTreino?$ /?m=AddTreino&p [NC,L]
+
+
 </IfModule>

@@ -54,6 +54,8 @@ class UserController extends Controller
         
         if ($resultado != false){
             $user->setToken($resultado);
+        }else {
+            die("Usuario Invalido!!!");
         }
         
         $bool = $user->getToken();

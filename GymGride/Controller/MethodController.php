@@ -44,6 +44,13 @@ class MethodController extends Controller
             $mth->UpdateConfig();
             header("Location: /Config");
         }
+
+        if ($m == 'AddTreino'){
+            $this->pagsavePersonal();
+            $pc = new PersonalController();
+            $pc->treinoForm();
+            
+        }
     }   
 
 }
