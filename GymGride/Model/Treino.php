@@ -34,4 +34,12 @@
             $valores = array("$ID", "$ID", "$Cod", 15, "$CPF", "$tell", 1, 1, 'NOW()');
             $this->dbInsert('Usuarios', $colunas, $valores); */
         }
+
+        public function submitTreino($colunas, $dados)
+        {
+
+            $this->dbInsert("exercicios", $colunas, $dados);
+
+        }
+
     }

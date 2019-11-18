@@ -120,6 +120,7 @@ class Model {
     //Insere valores no banco
     public function dbInsert($table, $columns, $values)
     {
+       // $this->ver($values);
         $sqlQuery = "INSERT INTO {$table} (";
         for($_x = 0; $_x < count($columns); $_x++){
             $sqlQuery .= "$columns[$_x], ";
@@ -128,15 +129,20 @@ class Model {
         $sqlQuery = substr($sqlQuery, 0, -2);
         $sqlQuery .= ") VALUES (";
 
-        for($_x = 0; $_x < count($values); $_x++){
-            preg_match('/^(NOW())|(SHA1)$/', $values[$_x], $matches) || (intval($values[$_x]));
-            if (!empty($matches)){
-                $sqlQuery .= "$values[$_x], ";
-            }else{
-                $sqlQuery .= "'$values[$_x]', ";
+        if (is_array($values)){
+            for($_x = 0; $_x < count($values); $_x++){
+                preg_match('/^(NOW())|(SHA1)$/', $values[$_x], $matches) || (intval($values[$_x]));
+                if (!empty($matches)){
+                    $sqlQuery .= "$values[$_x], ";
+                }else{
+                    $sqlQuery .= "'$values[$_x]', ";
+                }
             }
-        }
+        }else{
+            $sqlQuery .= $values . "  ";
 
+        }
+        
         $sqlQuery = substr($sqlQuery, 0, -2);
         $sqlQuery .= ")";      
             

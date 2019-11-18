@@ -51,6 +51,21 @@ class MethodController extends Controller
             $pc->treinoForm();
             
         }
+        if ($m == 'submitTreino'){
+            $this->pagsavePersonal();
+            (new PersonalController)->submitTreino();
+
+        }
+        if ($m == 'AddSerie'){
+            $this->pagsavePersonal();
+            (new PersonalController)->serieForm();
+
+        }        
+        if ($m == 'submitSerie'){
+            $this->pagsavePersonal();
+            (new PersonalController)->submitSerie();
+
+        }
     }   
 
 }

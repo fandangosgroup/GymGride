@@ -10,12 +10,14 @@ class Controller {
     public $allPost;
     public $html;
 
-    public function ver($v)
+    public function ver($v, $d = 1)
     {
         echo "<pre>";
         print_r($v);
         echo "</pre>";
+        if ($d == 1){
         die();
+        }
     }
 
     //Mostra um arquivo html pelo get
@@ -32,6 +34,7 @@ class Controller {
         foreach ($_POST as $key => $value) {
             $this->allPost[$key] = $value; 
         }
+        $this->clearHTML($this->allPost);
         return $this->allPost;
     }
 
@@ -51,7 +54,7 @@ class Controller {
     }
 
     //Limpa codigos html e php do Post
-    public function clearHTML($data)
+    public function clearHTML(&$data)
     {
         foreach ($data as $key => $value) {
             $data[$key] = strip_tags ($value);

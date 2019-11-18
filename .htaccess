@@ -59,5 +59,10 @@ allow from all
 
     RewriteRule ^CadastroTreino?$ /?m=AddTreino&p [NC,L]
 
+    RewriteRule ^SubmitTreino?$ /?m=submitTreino&p [NC,L]
+
+    RewriteRule ^CadastroSerie?$ /?m=AddSerie&p [NC,L]
+
+    RewriteRule ^SubmitSerie?$ /?m=submitSerie&p [NC,L]
 
 </IfModule>
