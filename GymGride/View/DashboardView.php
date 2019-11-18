@@ -84,6 +84,8 @@ class DashboardView extends View
     //Mostra a tela do Personal
     public function Personal()
     {
+        if (!isset($_SESSION)) session_start();
+
         $regenerate = new SessionController;
         
         $session = new UserController;
@@ -95,6 +97,8 @@ class DashboardView extends View
     //Mostra a tela de admin com todos os usuarios
     public function Admin()
     {
+        if (!isset($_SESSION)) session_start();
+
         $regenerate = new SessionController;
         
         $session = new UserController;
