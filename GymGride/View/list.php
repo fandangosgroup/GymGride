@@ -11,26 +11,27 @@
     <div id="customers">
     <table  border=1 id="customers">
             <tr>
-                <th> ID_Serie </th>
-                <th> ID_Exercicio </th>
-                <th> Cod </th>
-                <th> Num_rep </th>
+                <th> Exercicio </th>
+                <th> Codigo do Exercicio </th>
+                <th> Serie </th>
+                <th> Repetições </th>
                 <th> Carga </th>
-                <th> Tmp_Pausa </th>
-                <th> Ativo</th>
+                <th> Tempo de Pausa </th>
+                
 			
             </tr>
             <?php
                 foreach($dados as $dados) {?>
 
                 <tr>
-                    <td><?php echo $dados['ID_Serie']; ?></td>
+                    <td><?php echo $dados['ExercicioNome']; ?></td>
+                    
                     <td><?php echo $dados['ID_Exercicio']; ?></td>
                     <td><?php echo $dados['Cod']; ?></td>
                     <td><?php echo $dados['Num_rep']; ?></td>
-                    <td><?php echo $dados['Carga']; ?></td>
+                    <td><?php echo $dados['Carga']; ?> Kg</td>
                     <td><?php echo $dados['Tmp_Pausa']; ?></td>
-                    <td><?php echo $dados['Ativo']; ?></td>
+                   
                 </tr>
             
             <?php }?>

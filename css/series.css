@@ -1,0 +1,125 @@
+#pagina {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-image: url("../images/config/fundo.png");
+    background-size: cover;
+}
+
+.photo {
+    width: 1000px;
+}
+
+.table {
+    box-shadow: 20px 20px 20px;
+    border: 15px solid rgb(245, 245, 245);
+    border-radius: 10%;
+    background-color: rgb(255, 255, 255);
+    width: 390px;
+    height: 560px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    margin: 0px 160px 0px;
+}
+
+body {
+    margin: 0px;
+}
+
+.button input[type="submit"] {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border: 2px solid rgb(3, 105, 238);
+    color: white;
+    background-color: rgb(3, 105, 238);
+    width: 330px;
+    margin: 0px 20px 0px;
+}
+
+.btn input[type="submit"]:hover {
+    background-color: rgb(4, 78, 175);
+    border: 2px solid rgb(4, 78, 175);
+    cursor: Pointer;
+}
+
+.inputs input:hover {
+    background-color: rgb(175, 173, 173);
+}
+
+.input input {
+    background-color: rgb(231, 231, 231);
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.icone {
+    width: 180px;
+    margin: 0px 60px 0px;
+}
+
+.dados {
+    width: 380px;
+    margin: 10px 5px 0px;
+}
+
+.image
+{
+    width: 100px;
+    margin: 0px 140px 0px; 
+}
+
+.img a:hover{
+    border: 2px solid rgb(4, 78, 175);
+}
+
+.container {
+    position: center;
+    width: 5%;
+  }
+  
+  .image {
+    opacity: 1;
+    display: block;
+    transition: 1.60s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    left: 355px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 10%;
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    margin: 0px 25px 0px;
+  }
+
+  .volta {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border: 2px solid rgb(3, 105, 238);
+    color: white;
+    background-color: rgb(3, 105, 238);
+   
+    width: 20%;
+    margin: 0px 25px 0px;
+  }

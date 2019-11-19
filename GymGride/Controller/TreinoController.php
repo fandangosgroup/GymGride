@@ -19,7 +19,7 @@
 
             $treino = new Treino;
             $array = $treino->getDados();
-
+            
             if ($array != false){
                 $v = new TreinoView();
                 //$file = $v->render('item', 'list');

@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DashBoard</title>
+    <title>GYM Gride</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../css/personal.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Eu sou um personal</h1>
-
-
-    <a href="">Cadastrar Novo Usuario</a>
-    <br>
-    <a href="CadastroTreino">Cadastrar Exercicio</a>
-    <br>
-    <a href="CadastroSerie">Cadastrar Série</a>
-    <br>
-    <a href="Logout">Sair</a>
+    <header>
+        <div id="cot" class="container-fluid">
+            <div>
+                <img id="Imagem" src="../images/123.png">
+            </div>
+            <div id="nome">
+                <h3 style="color: black;"> Bem-Vindo  <bold id="color"> Personal </bold> </h3>  
+            </div>
+            <div class="logo">
+                <center><h2>Gym Gride</h2></center>
+            </div>
+            <a id="exit" href="Logout" class="btn btn-danger" >Sair</a> 
+        </div>
+    </header>
+    <div id="corpo" class="container-fluid">
+        <a id="botao1" href="#"><button type="button" class="btn btn-outline-light btn-lg btn-block">Cadastrar novo usuário</button></a>
+        <a id="botao2" href="CadastroTreino"><button type="button" class="btn btn-outline-light btn-lg btn-block">Cadastrar exercício</button></a>
+        <a id="botao3" href="CadastroSerie"><button type="button" class="btn btn-outline-light btn-lg btn-block">Cadastrar série</button></a>
+    </div>
+    
 </body>
 </html>
