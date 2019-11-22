@@ -32,7 +32,7 @@ class DashboardView extends View
                 break;
 
             default:
-                header("Location: /Invalido");
+                header("Location: /?alert=9#paralogin");
                 break;
         }
     }

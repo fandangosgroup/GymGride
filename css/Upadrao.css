@@ -1,0 +1,61 @@
+#cot
+{
+    background-color: #DCDCDC;
+    padding: 28px;
+}
+#Imagem
+{
+    width: 35px;
+    padding: 10 10 ;
+    border-radius: 3px;
+    margin-top: -19px;
+}
+#nome
+{
+    margin: -40px 60px 0px;
+}
+.logo
+{
+    color: black(9, 250, 9);
+    margin: -45px 555px -30px;
+    border: black;
+}
+@font-face {
+    font-family: "abys";
+    src: url(/fonts/Abys-Regular.otf);
+    font-weight: bold;
+}
+h2
+{
+    font-family: 'abys';
+}
+h3
+{
+    font-family: "Kozuka Gothic Pr6N M", Times, serif;
+}
+#exit
+{
+    float:right;
+    margin: -15px 5px -1px; 
+    
+}
+#corpo
+{
+    background-image: url(/images/dashboard/223.jpg);
+    height: 569px;
+}
+#botao1
+{
+    font-size: 50%;
+    margin-left: 50%;
+}
+#botao2
+{
+    font-size: 50%;
+    margin-left: 75%;
+}
+#botao3
+{
+    font-size: 50%;
+    margin: 50px 100px 50px;
+}
